@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Ponshuu
 <img src="https://github.com/user-attachments/assets/ac92acd0-2696-4fdb-b874-714ab4c577cf" width="150">
 
@@ -13,3 +14,5 @@
 ### 主な利用シーン
 - おすすめの日本酒を紹介したいとき。
 - 気になる日本酒の情報を集めたいとき。
+
+
