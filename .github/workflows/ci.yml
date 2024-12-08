@@ -8,8 +8,6 @@ on:
 jobs:
   # Rubyのセキュリティスキャン
   scan_ruby:
-    jobs:
-  scan_ruby:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -19,15 +17,20 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
+          bundler-cache: false # キャッシュを無効化
 
-      - name: Clear Bundler cache       # 古いキャッシュをクリアするステップ
-        run: bundle clean --force
+      - name: Install Bundler and dependencies
+        run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3 --path vendor/bundle
 
-      - name: Install dependencies      # 依存関係をインストールするステップ
-        run: bundle install --jobs 4 --retry 3
+      - name: Setup project
+        run: bin/setup  # bin/setupの実行
 
       - name: Scan for common Rails security vulnerabilities using static analysis
-        run: bin/brakeman --no-pager
+        run: |
+          ls -la  # デバッグ用にファイルリストを確認
+          bin/brakeman --no-pager
 
   # JavaScriptのセキュリティスキャン
   jobs:
