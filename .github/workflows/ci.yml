@@ -30,7 +30,8 @@ jobs:
         run: bin/brakeman --no-pager
 
   # JavaScriptのセキュリティスキャン
-  scan_js:
+  jobs:
+  scan_ruby:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -40,10 +41,13 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
-          bundler-cache: true
+          bundler-cache: true  # Bundlerキャッシュを有効にする
 
-      - name: Scan for security vulnerabilities in JavaScript dependencies
-        run: bin/importmap audit
+      - name: Install dependencies   # Gemfileに基づいて依存関係をインストール
+        run: bundle install --jobs 4 --retry 3
+
+      - name: Scan for common Rails security vulnerabilities using static analysis
+        run: bin/brakeman --no-pager
 
   # Lintジョブ
   lint:
