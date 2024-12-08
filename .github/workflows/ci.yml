@@ -24,11 +24,14 @@ jobs:
           gem install bundler
           bundle install --jobs 4 --retry 3 --path vendor/bundle
 
+      - name: Verify bundle install
+        run: bundle check || bundle install --jobs 4 --retry 3 --path vendor/bundle
+
       - name: Setup project
         run: bin/setup  # bin/setupの実行
 
       - name: Scan for common Rails security vulnerabilities using static analysis
-        run: bin/brakeman --no-pager
+        run: bundle exec bin/brakeman --no-pager
 
   # JavaScriptのセキュリティスキャン
   scan_js:
@@ -63,7 +66,7 @@ jobs:
           bundler-cache: true
 
       - name: Lint code for consistent style
-        run: bin/rubocop -f github
+        run: bundle exec bin/rubocop -f github
 
   # テストジョブ
   test:
@@ -83,13 +86,14 @@ jobs:
 
       - name: Set up database
         run: |
+          bundle install --jobs 4 --retry 3
           bin/rails db:create
           bin/rails db:migrate
 
       - name: Run tests
         env:
           RAILS_ENV: test
-        run: bin/rails db:test:prepare test test:system
+        run: bundle exec bin/rails db:test:prepare test test:system
 
       - name: Keep screenshots from failed system tests
         uses: actions/upload-artifact@v4
@@ -98,3 +102,4 @@ jobs:
           name: screenshots
           path: "${{ github.workspace }}/tmp/screenshots"
           if-no-files-found: ignore
+          
