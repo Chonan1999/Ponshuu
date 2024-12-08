@@ -17,21 +17,18 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
-          bundler-cache: false # キャッシュを無効化
+          bundler-cache: true
 
       - name: Install Bundler and dependencies
         run: |
           gem install bundler
-          bundle install --jobs 4 --retry 3 --path vendor/bundle
+          bundle install --jobs 4 --retry 3
 
       - name: Verify bundle install
-        run: bundle check || bundle install --jobs 4 --retry 3 --path vendor/bundle
-
-      - name: Setup project
-        run: bin/setup  # bin/setupの実行
+        run: bundle check || bundle install --jobs 4 --retry 3
 
       - name: Scan for common Rails security vulnerabilities using static analysis
-        run: bundle exec bin/brakeman --no-pager
+        run: bundle exec brakeman --no-pager
 
   # JavaScriptのセキュリティスキャン
   scan_js:
@@ -47,10 +44,10 @@ jobs:
           bundler-cache: true
 
       - name: Install dependencies
-        run: bundle install --jobs 4 --retry 3  # 必要なGemをインストール
+        run: bundle install --jobs 4 --retry 3
 
       - name: Scan for security vulnerabilities in JavaScript dependencies
-        run: bin/importmap audit
+        run: bundle exec bin/importmap audit
 
   # Lintジョブ
   lint:
@@ -65,8 +62,11 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
+      - name: Install dependencies
+        run: bundle install --jobs 4 --retry 3
+
       - name: Lint code for consistent style
-        run: bundle exec bin/rubocop -f github
+        run: bundle exec rubocop -f github
 
   # テストジョブ
   test:
@@ -84,9 +84,13 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
+      - name: Install Bundler and dependencies
+        run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+
       - name: Set up database
         run: |
-          bundle install --jobs 4 --retry 3
           bin/rails db:create
           bin/rails db:migrate
 
@@ -102,4 +106,3 @@ jobs:
           name: screenshots
           path: "${{ github.workspace }}/tmp/screenshots"
           if-no-files-found: ignore
-          
