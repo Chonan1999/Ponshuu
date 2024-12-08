@@ -41,10 +41,10 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
-          bundler-cache: true  # Bundlerキャッシュを有効にする
+          bundler-cache: false  # キャッシュを無効化して一度クリーンにインストール
 
-      - name: Install dependencies   # Gemfileに基づいて依存関係をインストール
-        run: bundle install --jobs 4 --retry 3
+      - name: Install dependencies
+        run: bundle install --jobs 4 --retry 3  # 必要なGemをインストール
 
       - name: Scan for common Rails security vulnerabilities using static analysis
         run: bin/brakeman --no-pager
