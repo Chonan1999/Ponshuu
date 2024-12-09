@@ -17,7 +17,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should show user" do
-    user = users(:one) 
+    user = users(:one)
     get user_url(user)
     assert_response :success
   end
