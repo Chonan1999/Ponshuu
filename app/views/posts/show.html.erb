@@ -1,0 +1,28 @@
+<h2>日本酒</h2>
+<p><%= @post.name %></p>
+
+<h2>感想</h2>
+<p><%= @post.text %></p>
+
+<%= link_to '戻る', :back %>
+
+<h2>コメント一覧</h2>
+<% if @post.comments.any? %>
+  <% @post.comments.each do |comment| %>
+    <li><%= comment.comment %> (投稿者: <%= comment.user.name %>)</li>
+    <% end %>
+  </ul>
+<% end %>
+
+<h3>コメントを投稿する</h3>
+<%= form_with model: [@post, @post.comments.build], local: true do |form| %>
+  <div>
+    <%= form.label :comment, "コメント" %>
+    <%= form.text_area :comment, rows: 3 %>
+  </div>
+  <div>
+    <%= form.submit "コメントを送る" %>
+  </div>
+<% end %>
+
+<%= link_to '戻る', posts_path %>

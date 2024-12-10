@@ -1,0 +1,6 @@
+<h1>あなたの酒蔵</h1>
+<% @posts.each do |post| %>
+  <p>日本酒名: <%= post.name %></p>
+  <p>感想: <%= post.text %></p>
+    <span><%= link_to post.name, post_path(post) %></span>
+<% end %>
