@@ -1,0 +1,9 @@
+<%= form_with(model: @user, local: true) do |form| %>
+    <div>
+      <%= form.label :profile_image, "プロフィール画像" %>
+      <%= form.file_field :profile_image %>
+    </div>
+  
+    <%= form.submit "更新" %>
+  <% end %>
+  

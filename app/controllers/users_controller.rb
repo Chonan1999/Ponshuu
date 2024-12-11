@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @recent_posts = @user.posts.order(created_at: :desc).limit(6)
   end
 
   def new
@@ -27,7 +28,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to @user, notice: "ユーザー情報が更新されました。"
+      redirect_to @user
     else
       render :edit, status: :unprocessable_entity
     end
@@ -36,12 +37,12 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to users_path, notice: "ユーザーが削除されました。"
+    redirect_to users_path
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:handle_name, :email, :password, :password_confirmation, :profile_image)
   end
 end

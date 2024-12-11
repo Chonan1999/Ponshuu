@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  get 'comments/create'
-  get 'comments/destroy'
+  get "comments/create"
+  get "comments/destroy"
   root to: "tops#home"
   devise_for :users
   resources :users, only: [ :index, :new, :create, :show ]
 
   resources :posts do
-    resources :comments, only: [:create, :destroy]
+    resources :comments, only: [ :create, :destroy ]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
