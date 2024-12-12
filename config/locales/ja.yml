@@ -1,0 +1,6 @@
+ja:
+  hello: "こんにちは"
+  devise:
+    sessions:
+      new:
+        sign_in: "ログイン"

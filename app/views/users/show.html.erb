@@ -8,6 +8,8 @@
   <p><strong>自己紹介:</strong> <%= @user.profile %></p>
 </div>
 
+<%= link_to "プロフィールを編集する", edit_user_path(@user), class: "button" %>
+
 <h2>最新の投稿</h2>
 <div>
   <% @recent_posts.each do |post| %>
@@ -19,5 +21,6 @@
 </div>
 
 <div>
+  <%= link_to "新規投稿へ", new_post_path %>
   <%= link_to "投稿一覧へ", posts_path %>
 </div>

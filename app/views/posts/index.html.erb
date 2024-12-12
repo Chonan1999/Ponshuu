@@ -1,9 +1,11 @@
 <h1>あなたの酒蔵</h1>
 <% @posts.each do |post| %>
+  <span><%= link_to post.name, post_path(post) %></span>
   <p>日本酒名: <%= post.name %></p>
   <p>感想: <%= post.text %></p>
-    <span><%= link_to post.name, post_path(post) %></span>
-    <p>画像</p>
+
     <%= attachment_image_tag post, :image, format: 'jpeg', size: '100x100' %>
   <% end %>
+
+  <%= link_to "マイページに戻る", user_path(current_user) %>
 

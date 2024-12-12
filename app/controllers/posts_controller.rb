@@ -7,7 +7,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.new(post_params)
-    post.user_id = current_user.id
+    @post.user_id = current_user.id
     if @post.save
       redirect_to posts_path
     else
@@ -16,6 +16,7 @@ class PostsController < ApplicationController
   end
 
   def index
+    @posts = Post.published.page(params[:page]).reverse_order
     @posts = Post.all
   end
 
@@ -29,6 +30,10 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+  end
+
+  def confirm
+    @posts = current_user.posts.draft.page(params[:page]).reverse_order
   end
 
   def update
@@ -45,6 +50,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:name, :text, :image,)
+    params.require(:post).permit(:name, :text, :image, :status)
   end
 end

@@ -6,6 +6,8 @@
   <%= f.text_area :text %>
   <h4>画像</h4>
   <%= f.file_field :image %>
-  <p></p>
+  <div class="form-group">
+    <%= f.select :status, Post.statuses.keys.map { |k| [t("enums.post.status.#{k}"),k]}, {}, {class: "custom-select w-25 mb-3"} %>
+  </div>
   <%= f.submit '投稿する' %>
 <% end %>

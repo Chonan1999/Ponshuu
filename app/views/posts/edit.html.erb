@@ -1,8 +1,30 @@
 <h1>編集する</h1>
 <%= form_with model:@post, local:true do |f| %>
-  <h4>日本酒名</h4> 
-  <%= f.text_field :name %>
-  <h4>感想</h4>
-  <%= f.text_area :text %><br>
-  <%= f.submit '保存' %>
+  <div class="field">
+    <%= f.label :name, "日本酒名" %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <h2>感想</h2>
+    <%= f.text_area :text %><br>
+  </div>
+
+  <div class="field">
+    <%= f.label :image, "画像" %><br>
+    <%= f.file_field :image %>
+  </div>
+
+  <% if @post.image.present? %>
+    <div class="field">
+      <p>現在の画像:</p>
+      <%= attachment_image_tag @post, :image, size: "150x150" %>
+    </div>
+  <% end %>
+
+   <div class="actions">
+    <%= f.submit "更新する" %>
+  </div>
 <% end %>
+
+<%= link_to "戻る", @post %>
+

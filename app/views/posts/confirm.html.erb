@@ -1,0 +1,15 @@
+<h1>下書き一覧</h1>
+
+<% if @draft_posts.any? %>
+  <% @draft_posts.each do |post| %>
+    <div class="post">
+      <p><strong>名前:</strong> <%= post.name %></p>
+      <p><strong>感想:</strong> <%= truncate(post.text, length: 100) %></p>
+      <p><strong>状態:</strong> 下書き</p>
+      <%= link_to "編集する", edit_post_path(post), class: "btn btn-primary" %>
+    </div>
+    <hr>
+  <% end %>
+<% else %>
+  <p>下書きの投稿はありません。</p>
+<% end %>
