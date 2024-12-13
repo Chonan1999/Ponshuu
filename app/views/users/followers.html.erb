@@ -1,0 +1,12 @@
+<h1><%= @user.handle_name %> さんのフォロワー一覧</h1>
+
+<% @users.each do |follower| %>
+  <div>
+    <p>
+      <%= link_to follower.handle_name, user_path(follower) %>
+      <%= button_to "フォローする", relationships_path(followed_id: @user.id), method: :post %>
+    </p>
+  </div>
+<% end %>
+
+<%= link_to "マイページに戻る", user_path(@user), class: "button" %>

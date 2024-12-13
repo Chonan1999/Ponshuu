@@ -3,11 +3,20 @@ Rails.application.routes.draw do
   get "comments/destroy"
   root to: "tops#home"
   devise_for :users
-  resources :users, only: [:index, :new, :create, :show, :edit, :update]
+  resources :users, only: [:index, :new, :create, :show, :edit, :update] do
+    member do
+      get :followers, :followings
+    end
+    resource :relationships, only: [:create, :destroy]
+  end
 
   resources :posts do
     collection do
       get :confirm
+    end
+
+    member do
+      patch :publish
     end
     
     resources :comments, only: [ :create, :destroy ]

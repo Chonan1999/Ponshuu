@@ -10,6 +10,22 @@
 
 <%= link_to "プロフィールを編集する", edit_user_path(@user), class: "button" %>
 
+<div>
+  <p>フォロー: <%= @user.followings.count %> 人</p>
+  <p>フォロワー: <%= @user.followers.count %> 人</p>
+
+  <%= link_to "フォロー一覧", followings_user_path(@user) %>
+  <%= link_to "フォロワー一覧", followers_user_path(@user) %>
+</div>
+
+<% if current_user != @user %>
+  <% if current_user.following?(@user) %>
+    <%= button_to "フォローを外す", relationship_path(@user), method: :delete %>
+  <% else %>
+    <%= button_to "フォローする", relationships_path(followed_id: @user.id), method: :post %>
+  <% end %>
+<% end %>
+
 <h2>最新の投稿</h2>
 <div>
   <% @recent_posts.each do |post| %>
@@ -24,3 +40,5 @@
   <%= link_to "新規投稿へ", new_post_path %>
   <%= link_to "投稿一覧へ", posts_path %>
 </div>
+
+<%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button" %>

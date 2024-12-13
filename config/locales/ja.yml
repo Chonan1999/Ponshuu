@@ -4,3 +4,9 @@ ja:
     sessions:
       new:
         sign_in: "ログイン"
+  enums:
+    post:
+      status:
+        draft: "下書き"
+        published: "投稿済み"
+

@@ -15,9 +15,17 @@ class PostsController < ApplicationController
     end
   end
 
+  def publish
+    if @post.draft? # 下書き状態か確認
+      @post.update(status: "published") # ステータスをpublishedに変更
+      redirect_to @post, notice: "下書きを投稿しました！"
+    else
+      redirect_to @post, alert: "この投稿は既に公開されています。"
+    end
+  end
+
   def index
-    @posts = Post.published.page(params[:page]).reverse_order
-    @posts = Post.all
+    @posts = Post.published.order(created_at: :desc).page(params[:page])
   end
 
   def show
@@ -33,7 +41,7 @@ class PostsController < ApplicationController
   end
 
   def confirm
-    @posts = current_user.posts.draft.page(params[:page]).reverse_order
+    @drafts = Post.where(status: "draft").order(created_at: :desc)
   end
 
   def update
@@ -51,5 +59,9 @@ class PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:name, :text, :image, :status)
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
   end
 end

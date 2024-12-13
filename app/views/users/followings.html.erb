@@ -1,0 +1,9 @@
+<h1><%= @user.handle_name %> さんのフォロー一覧</h1>
+
+<% @users.each do |user| %>
+  <div>
+    <%= link_to user.handle_name, user_path(user) %>
+  </div>
+<% end %>
+
+<%= link_to "マイページに戻る", user_path(@user), class: "button" %>
