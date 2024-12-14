@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @recent_posts = @user.posts.order(created_at: :desc).limit(6)
+    @recent_posts = @user.posts.published.order(created_at: :desc).limit(6)
     @following_users = @user.followings
     @follower_users = @user.followers
   end
@@ -50,6 +50,15 @@ class UsersController < ApplicationController
   def followers
     @user = User.find(params[:id])
     @users = @user.followers.page(params[:page]).per(3).reverse_order
+  end
+
+  def posts
+    @user = User.find(params[:id]) 
+    if @user == current_user
+      @posts = @user.posts.order(created_at: :desc).page(params[:page])
+    else
+      @posts = @user.posts.published.order(created_at: :desc)
+    end
   end
 
   private

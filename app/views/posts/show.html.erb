@@ -1,3 +1,7 @@
+<h2>
+  <%= link_to "#{@post.user.handle_name}さんの投稿", posts_user_path(@post.user) %>
+</h2>
+
 <h2>日本酒</h2>
 <p><%= @post.name %></p>
 
@@ -7,28 +11,32 @@
 <h2>画像</h2>
 <%= attachment_image_tag @post, :image, format: 'jpeg', size: "300x300" %><br>
 
-<%= link_to '戻る', :back %>
-<%= link_to '編集する', edit_post_path(@post.id) %><br>
-<%= link_to '削除する', post_path(@post.id),  data: { turbo_method: :delete, turbo_confirm:  "本当に消しますか？"} %><br>
-<%= link_to 'あなたの酒蔵を見る', posts_path %>
-
-<h2>コメント一覧</h2>
-<% if @post.comments.any? %>
-  <% @post.comments.each do |comment| %>
-    <li><%= comment.comment %> (投稿者: <%= comment.user.name %>)</li>
-    <% end %>
-  </ul>
+<% if @post.user == current_user %>
+  <%= link_to '戻る', :back %>
+  <%= link_to '編集する', edit_post_path(@post.id) %><br>
+  <%= link_to '削除する', post_path(@post.id),  data: { turbo_method: :delete, turbo_confirm:  "本当に消しますか？"} %><br>
+  <%= link_to '投稿一覧を見る', posts_user_path(@user), class: "button" %>
 <% end %>
 
-<h3>コメントを投稿する</h3>
-<%= form_with model: [@post, @post.comments.build], local: true do |form| %>
-  <div>
-    <%= form.label :comment, "コメント" %>
-    <%= form.text_area :comment, rows: 3 %>
-  </div>
-  <div>
-    <%= form.submit "コメントを送る" %>
-  </div>
+<% if @post.status == "published" %>
+  <h2>コメント一覧</h2>
+  <% if @post.comments.any? %>
+    <% @post.comments.each do |comment| %>
+      <li><%= comment.comment %> (投稿者: <%= comment.user.handle_name %>)</li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <h3>コメントを投稿する</h3>
+  <%= form_with model: [@post, @post.comments.build], local: true do |form| %>
+   <div>
+     <%= form.label :comment, "コメント" %>
+     <%= form.text_area :comment, rows: 3 %>
+   </div>
+   <div>
+     <%= form.submit "コメントを送る" %>
+   </div>
+ <% end %>
 <% end %>
 
-<%= link_to '戻る', posts_path %>
+<%= link_to '戻る', search_posts_path(keyword: params[:keyword]) %>

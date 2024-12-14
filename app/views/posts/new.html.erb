@@ -4,6 +4,10 @@
   <%= f.text_field :name %>
   <h4>感想</h4>
   <%= f.text_area :text %>
+  <div>
+    <%= f.label :category_id, "カテゴリー" %>
+    <%= f.collection_select :category_id, Category.all, :id, :name, prompt: "カテゴリーを選択" %>
+  </div>
   <h4>画像</h4>
   <%= f.file_field :image %>
   <div class="form-group">
@@ -11,5 +15,5 @@
   </div>
   <%= f.submit '投稿する' %>
 <% end %>
-
+<%= link_to '戻る', user_path(current_user) %>
 <%= link_to "下書き一覧へ", confirm_posts_path %>

@@ -16,12 +16,9 @@ class PostsController < ApplicationController
   end
 
   def publish
-    if @post.draft? # 下書き状態か確認
-      @post.update(status: "published") # ステータスをpublishedに変更
-      redirect_to @post, notice: "下書きを投稿しました！"
-    else
-      redirect_to @post, alert: "この投稿は既に公開されています。"
-    end
+    @post.draft?
+    @post.update(status: "published") 
+    redirect_to @post
   end
 
   def index
@@ -32,8 +29,12 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @user = @post.user 
     @recent_posts = @user.posts.order(created_at: :desc).limit(6)
-    @comments = @post.comments
-    @comments = @post.comments
+    @comments = @post.comments.includes(:user)
+    @keyword = params[:keyword]
+  end
+
+  def posts
+    @posts = @user.posts.order(created_at: :desc)
   end
 
   def edit
@@ -56,6 +57,31 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
+  def search
+    @categories = Category.all
+    @posts = Post.none
+    
+    # 検索キーワードがあれば条件を追加
+    if params[:keyword].present? || params[:category_id].present?
+      @posts = Post.published
+      @posts = @posts.where("name LIKE ? OR text LIKE ?", "%#{params[:keyword]}%", "%#{params[:keyword]}%")
+      @posts = @posts.where(category_id: params[:category_id]) if params[:category_id].present?
+      @posts = @posts.order(created_at: :desc).page(params[:page])
+    end
+    
+      # カテゴリが選択されていれば条件を追加
+    if params[:category_id].present?
+      @posts = @posts.where(category_id: params[:category_id])
+    end
+    
+      # 並び順とページネーションを追加
+    @posts = @posts.order(created_at: :desc).page(params[:page])
+    
+      # キーワードをビューに渡す
+    @keyword = params[:keyword]
+    end    
+
+
   private
   def post_params
     params.require(:post).permit(:name, :text, :image, :status)
@@ -63,5 +89,9 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 end

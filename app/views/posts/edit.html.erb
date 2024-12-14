@@ -9,6 +9,17 @@
     <%= f.text_area :text %><br>
   </div>
 
+  <%= form_with model: @post, local: true do |f| %>
+    <div>
+      <%= f.label :category_id, "カテゴリー" %>
+      <%= f.collection_select :category_id, Category.all, :id, :name, prompt: "カテゴリーを選択" %>
+    </div>
+  
+    <div>
+      <%= f.submit "更新する", class: "button" %>
+    </div>
+  <% end %>  
+
   <div class="field">
     <%= f.label :image, "画像" %><br>
     <%= f.file_field :image %>

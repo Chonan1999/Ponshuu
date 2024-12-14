@@ -1,0 +1,22 @@
+<h1>
+  <%= @user == current_user ? "自分の投稿一覧" : "#{@user.handle_name}さんの投稿一覧" %>
+</h1>
+
+<% if @posts.any? %>
+  <% @posts.each do |post| %>
+    <div>
+      <h3><%= link_to post.name, post_path(post) %></h3>
+      <p>感想: <%= post.text %></p>
+
+     <% if post.image.present? %>
+      <%= attachment_image_tag post, :image, format: 'jpeg', size: '100x100' %>
+  <% end %>
+
+  <p>投稿日: <%= l(post.created_at, format: :short) %></p>
+    </div>
+  <% end %>  
+<% else %>
+  <p>投稿がありません。</p>
+<% end %>
+
+<%= link_to "戻る", user_path(@user), class: "button" %>

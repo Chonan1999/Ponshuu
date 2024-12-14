@@ -1,18 +1,22 @@
 Rails.application.routes.draw do
+  get 'categories/index'
+  get 'categories/show'
   get "comments/create"
   get "comments/destroy"
+  get 'posts/search', to: 'posts#search', as: 'search_posts'
   root to: "tops#home"
   devise_for :users
   resources :users, only: [:index, :new, :create, :show, :edit, :update] do
     member do
-      get :followers, :followings
+      get :followers, :followings, :posts
     end
-    resource :relationships, only: [:create, :destroy]
   end
 
+  resources :relationships, only: [:create, :destroy]
+  
   resources :posts do
     collection do
-      get :confirm
+      get :confirm, :search
     end
 
     member do
@@ -20,6 +24,8 @@ Rails.application.routes.draw do
     end
     
     resources :comments, only: [ :create, :destroy ]
+    resources :categories, only: [:index, :show]
+
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

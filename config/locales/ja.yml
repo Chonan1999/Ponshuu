@@ -8,5 +8,8 @@ ja:
     post:
       status:
         draft: "下書き"
-        published: "投稿済み"
+        published: "投稿する"
+  time:
+    formats:
+      short: "%Y年%m月%d日 %H:%M"
 

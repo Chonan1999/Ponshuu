@@ -1,0 +1,13 @@
+<h1><%= @category.name %> の投稿一覧</h1>
+
+<% if @posts.any? %>
+  <% @posts.each do |post| %>
+    <div>
+      <h3><%= link_to post.name, post_path(post) %></h3>
+      <p>日本酒名: <%= post.name %></p>
+      <p>感想: <%= post.text %></p>
+    </div>
+  <% end %>
+<% else %>
+  <p>このカテゴリには投稿がありません。</p>
+<% end %>

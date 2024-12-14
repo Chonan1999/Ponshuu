@@ -1,0 +1,32 @@
+<h1>日本酒を探す</h1>
+
+<%= form_with url: search_posts_path, method: :get, local: true do |f| %>
+  <div>
+    <%= f.label :keyword, "名前・感想" %>
+    <%= f.text_field :keyword, placeholder: "キーワードを入力" %>
+  </div>
+  <div>
+    <%= f.label :category_id, "カテゴリー" %>
+    <%= f.collection_select :category_id, @categories, :id, :name, { include_blank: "すべてのカテゴリー", selected: params[:category_id].presence }, { class: "custom-select" } %>
+  </div>
+  <div>
+    <%= f.submit "検索する", class: "button" %>
+  </div>
+<% end %>
+
+<% if params[:keyword].present? || params[:category_id].present? %>
+  <h2>検索結果</h2>
+  <% if @posts.any? %>
+    <% @posts.each do |post| %>
+      <div>
+        <%= link_to post.name, post_path(post, keyword: params[:keyword], category_id: params[:category_id]) %>
+        <p>カテゴリー: <%= post.category.name if post.category.present? %></p>
+        <p>感想: <%= post.text %></p>
+      </div>
+    <% end %>
+  <% else %>
+    <p>該当する投稿は見つかりませんでした。</p>
+  <% end %>
+<% end %> 
+
+<%= link_to '戻る', user_path(current_user) %>
