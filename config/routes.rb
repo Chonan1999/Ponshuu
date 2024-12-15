@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'categories/show'
   get "comments/create"
   get "comments/destroy"
+  get '/manifest.json', to: redirect('/assets/manifest.json')
   get 'posts/search', to: 'posts#search', as: 'search_posts'
   root to: "tops#home"
   devise_for :users
@@ -35,5 +36,5 @@ Rails.application.routes.draw do
 
   # Render dynamic PWA files from app/views/pwa/*
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
-  get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
+  # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 end

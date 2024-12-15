@@ -34,7 +34,14 @@ class PostsController < ApplicationController
   end
 
   def posts
-    @posts = @user.posts.order(created_at: :desc)
+    @user = User.find(params[:id])
+
+    # 自分の投稿一覧か他人の投稿一覧かを判定
+    if @user == current_user
+      @posts = @user.posts.order(created_at: :desc).page(params[:page])
+    else
+      @posts = @user.posts.published.order(created_at: :desc).page(params[:page])
+    end
   end
 
   def edit
@@ -42,7 +49,7 @@ class PostsController < ApplicationController
   end
 
   def confirm
-    @drafts = Post.where(status: "draft").order(created_at: :desc)
+    @drafts = current_user.posts.draft.order(created_at: :desc)
   end
 
   def update

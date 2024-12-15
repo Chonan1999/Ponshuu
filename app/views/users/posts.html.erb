@@ -2,6 +2,10 @@
   <%= @user == current_user ? "自分の投稿一覧" : "#{@user.handle_name}さんの投稿一覧" %>
 </h1>
 
+<% unless @user == current_user %>
+  <%= link_to "#{@user.handle_name}さんのマイページへ", user_path(@user), class: "button" %>
+<% end %>
+
 <% if @posts.any? %>
   <% @posts.each do |post| %>
     <div>

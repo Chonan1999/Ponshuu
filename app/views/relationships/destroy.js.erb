@@ -1,0 +1,12 @@
+// current_user のフォロー数を更新
+document.getElementById("followings-count").innerHTML = 
+  `<%= j link_to "#{current_user.followings.count}人", followings_user_path(current_user) %>`;
+
+// @user のフォロワー数を更新
+document.getElementById("followers-count").innerHTML = 
+  `<%= j link_to "#{@user.followers.count}人", followers_user_path(@user) %>`;
+
+// ボタンを「フォローする」に変更
+document.getElementById("follow-button").innerHTML = 
+  `<%= j button_to "フォローする", relationships_path(followed_id: @user.id), 
+                  method: :post, remote: true, class: "btn btn-primary", data: { turbo: false } %>`;

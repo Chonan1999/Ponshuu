@@ -2,7 +2,8 @@
 
 <% @users.each do |user| %>
   <div>
-    <%= link_to user.handle_name, user_path(user) %>
+    <%= link_to user.handle_name, user_path(user) %> 
+    <%= link_to "投稿一覧を見る", posts_user_path(user) %>
   </div>
 <% end %>
 

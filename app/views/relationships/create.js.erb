@@ -1,0 +1,8 @@
+// @user のフォロワー数のみ更新
+document.getElementById("followers-count").innerHTML = 
+  `<%= j link_to "#{@user.followers.count}人", followers_user_path(@user) %>`;
+
+// ボタンを「フォローを外す」に変更
+document.getElementById("follow-button").innerHTML = 
+  `<%= j button_to "フォローを外す", relationship_path(@relationship), 
+                  method: :delete, remote: true, class: "btn btn-danger", data: { turbo: false } %>`;
