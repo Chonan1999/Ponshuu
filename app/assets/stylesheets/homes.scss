@@ -1,0 +1,49 @@
+.title {
+    margin-bottom: 1rem;
+    font-family: "YuGothic";
+    font-weight: bold;
+    color: #fff;
+    font-size: 5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+
+    letter-spacing: 0.6rem;
+    line-height: 1.2;
+  }
+  
+  
+  .cover {
+    height: 100%;
+    width: 100%;
+    display: table;
+    background-image: asset-url('top_image.jpg');
+    background-color: rgba(255, 255, 255, 0.4);
+    background-blend-mode: lighten;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  
+  .text-center {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .btn-custom {
+    background-color: #0a3a6da9; /* 青地の背景色 */
+    color: #fff; /* 文字色を白 */
+    border: 2px solid #0a3a6da9; /* ボーダーを青に */
+    // font-size: 1.2rem; /* 文字サイズを大きく */
+    padding: 0.6rem 1.5rem; /* 上下・左右の余白を調整してボタンを大きく */
+    border-radius: 0.3rem; /* ボタンの角を少し丸く */
+    // font-weight: bold; /* 文字を太字に */
+    transition: all 0.3s ease;
+    margin: 0 0.5rem;
+  }
+  
+  .btn-custom:hover {
+    background-color: #fff; 
+    color: #0a3a6da9; /* 文字色を青に */
+    border: 2px solid #0a3a6da9; /* ボーダーを維持 */
+    text-decoration: none; /* ホバー時の下線を消す */
+  }
+  

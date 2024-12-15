@@ -8,3 +8,5 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 pin "@hotwired/turbo", to: "@hotwired--turbo.js" # @8.0.12
 pin "@rails/actioncable/src", to: "@rails--actioncable--src.js" # @7.2.200
 pin "rails-ujs" # @5.2.8
+pin "bootstrap", to: "bootstrap.min.js", preload: true
+pin "@popperjs/core", to: "popper.js", preload: true
