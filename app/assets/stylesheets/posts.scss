@@ -1,0 +1,191 @@
+/* ベースのスタイル */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 20px; /* 画面全体にパディング */
+  margin: 0 auto;
+  max-width: 1200px; /* 最大幅を設定 */
+}
+
+/* セクションの余白 */
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 30px 0;
+}
+
+/* フォーム全体 */
+form {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; /* 中央揃え */
+  width: 80%;
+  max-width: 800px;
+}
+
+/* 各フォーム要素にパディングとマージンを追加 */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-control,
+.custom-select,
+.form-control-file {
+  width: 100%;
+  padding: 15px;  /* より大きなパディング */
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+/* ボタンにパディング */
+.btn {
+  padding: 12px 25px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* 送信ボタンのスタイル */
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+.btn-link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+/* フォームラベルの統一 */
+h4, label {
+  font-family: "YuGothic", sans-serif;
+  font-size: 2rem; /* 文字サイズを日本酒名と同じに */
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+/* アニメーションを追加 */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* アニメーションをフォームやボタンに適用 */
+form {
+  animation: fadeIn 1s ease-out; /* フォームのフェードイン */
+}
+
+.links a {
+  animation: fadeIn 1.5s ease-out forwards; /* ボタンにアニメーション */
+  opacity: 0; /* 初期状態で非表示 */
+  animation-delay: 1s; /* 少し遅れて表示 */
+}
+
+/* 新しいボタンデザイン 016 */
+.button016 a {
+  background: #eee;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 220px;
+  padding: 10px 25px;
+  color: #313131;
+  transition: 0.3s ease-in-out;
+  font-weight: 500;
+  transform: skew(-10deg, 0deg);
+  text-decoration: none;
+}
+
+.button016 a span {
+  transform: skewX(10deg);
+}
+
+.button016 a:before {
+  content: '←';
+  position: absolute;
+  top: calc(50% - 2px);
+  right: -1em;
+  transform: translateY(calc(-50% - 2px)) rotate(30deg);
+  width: 12px;
+  height: 2px;
+  background-color: #6bb6ff;
+  transition: 0.3s;
+}
+
+.button016 a:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -1em;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 2px;
+  background-color: #6bb6ff;
+  transition: 0.3s;
+}
+
+.button016 a:hover:before, .button016 a:hover:after {
+  right: -1.2em;
+}
+
+.button016 a:hover {
+  background: #edf6ff;
+  color: #6bb6ff;
+}
+
+/* .links に新しいボタンを適用 */
+.links {
+  display: flex;
+  justify-content: center; /* 中央配置 */
+  margin-top: 20px;
+}
+
+.links a {
+  padding: 10px;
+  margin: 0 10px; /* ボタン間の余白 */
+  font-size: 1.2rem;
+  background-color: #0a3a6da9; /* ボタン背景 */
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.links a:hover {
+  background-color: #0056b3;
+  text-decoration: none;
+}
+

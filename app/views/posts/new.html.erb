@@ -1,19 +1,47 @@
 <h1>新規投稿</h1>
-<%= form_with model: @post, local:true do |f| %>
-  <h4>日本酒名</h4>
-  <%= f.text_field :name %>
-  <h4>感想</h4>
-  <%= f.text_area :text %>
-  <div>
-    <%= f.label :category_id, "カテゴリー" %>
-    <%= f.collection_select :category_id, Category.all, :id, :name, prompt: "カテゴリーを選択" %>
-  </div>
-  <h4>画像</h4>
-  <%= f.file_field :image %>
+
+<%= form_with model: @post, local: true do |f| %>
+  <!-- 日本酒名 -->
   <div class="form-group">
-    <%= f.select :status, Post.statuses.keys.map { |k| [t("enums.post.status.#{k}"),k]}, {}, {class: "custom-select w-25 mb-3"} %>
+    <h4>日本酒名</h4>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
-  <%= f.submit '投稿する' %>
+
+  <!-- 感想 -->
+  <div class="form-group">
+    <h4>感想</h4>
+    <%= f.text_area :text, class: 'form-control' %>
+  </div>
+
+  <!-- カテゴリー -->
+  <div class="form-group">
+    <%= f.label :category_id, "カテゴリー" %>
+    <%= f.collection_select :category_id, Category.all, :id, :name, prompt: "カテゴリーを選択", class: 'form-control' %>
+  </div>
+
+  <!-- 画像 -->
+  <div class="form-group">
+    <h4>画像</h4>
+    <%= f.file_field :image, class: 'form-control-file' %>
+  </div>
+
+  <!-- ステータス -->
+  <div class="form-group">
+    <%= f.select :status, Post.statuses.keys.map { |k| [t("enums.post.status.#{k}"), k] }, {}, { class: 'custom-select' } %>
+  </div>
+
+  <!-- 送信ボタン -->
+  <div class="form-group">
+    <%= f.submit '投稿する', class: 'btn btn-primary' %>
+  </div>
 <% end %>
-<%= link_to '戻る', user_path(current_user) %>
-<%= link_to "下書き一覧へ", confirm_posts_path %>
+
+<!-- 戻るボタン -->
+<div class="button016">
+  <a href="#"><span>戻る</span></a>
+</div>
+
+<!-- 下書き一覧へボタン -->
+<div class="button016">
+  <a href="#"><span>下書き一覧へ</span></a>
+</div>
