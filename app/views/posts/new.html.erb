@@ -34,14 +34,17 @@
   <div class="form-group">
     <%= f.submit '投稿する', class: 'btn btn-primary' %>
   </div>
-<% end %>
+  <% end %>
 
-<!-- 戻るボタン -->
-<div class="button016">
-  <a href="#"><span>戻る</span></a>
+<div class="buttons-container">
+ <!-- 新規投稿ページの戻るボタン -->
+  <div class="button016">
+    <a href="javascript:history.back()" data-turbo="false">戻る</a>
+  </div>
+
+  <!-- 下書き一覧ページへのリンク -->
+  <div class="button016">
+    <%= link_to "下書き一覧へ", confirm_posts_path, class: "btn btn-info" %>
+  </div>
 </div>
 
-<!-- 下書き一覧へボタン -->
-<div class="button016">
-  <a href="#"><span>下書き一覧へ</span></a>
-</div>

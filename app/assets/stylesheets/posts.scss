@@ -113,59 +113,21 @@ form {
   animation-delay: 1s; /* 少し遅れて表示 */
 }
 
-/* 新しいボタンデザイン 016 */
-.button016 a {
-  background: #eee;
-  position: relative;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin: 0 auto;
-  max-width: 220px;
-  padding: 10px 25px;
-  color: #313131;
-  transition: 0.3s ease-in-out;
-  font-weight: 500;
-  transform: skew(-10deg, 0deg);
-  text-decoration: none;
+/* button016自体のスタイルはそのままにして、ボタンのデザインだけリセット */
+.buttons-container .button016 a {
+  padding: 0; /* パディングをリセット */
+  font-size: initial; /* フォントサイズをリセット */
+  background-color: transparent; /* 背景色を透明に */
+  color: inherit; /* 文字色を親から引き継ぐ */
+  border: none; /* 枠線を削除 */
+  text-decoration: none; /* テキストの装飾を削除 */
 }
 
-.button016 a span {
-  transform: skewX(10deg);
+.buttons-container .button016 a:hover {
+  background-color: transparent; /* ホバー時の背景色も透明に */
+  color: inherit; /* ホバー時の文字色も親から引き継ぐ */
 }
 
-.button016 a:before {
-  content: '←';
-  position: absolute;
-  top: calc(50% - 2px);
-  right: -1em;
-  transform: translateY(calc(-50% - 2px)) rotate(30deg);
-  width: 12px;
-  height: 2px;
-  background-color: #6bb6ff;
-  transition: 0.3s;
-}
-
-.button016 a:after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  right: -1em;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 2px;
-  background-color: #6bb6ff;
-  transition: 0.3s;
-}
-
-.button016 a:hover:before, .button016 a:hover:after {
-  right: -1.2em;
-}
-
-.button016 a:hover {
-  background: #edf6ff;
-  color: #6bb6ff;
-}
 
 /* .links に新しいボタンを適用 */
 .links {
