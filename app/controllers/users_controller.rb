@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @recent_posts = @user.posts.published.order(created_at: :desc).limit(6)
+    @recent_posts = @user.posts.published.order(created_at: :desc).limit(3)
     @following_users = @user.followings
     @follower_users = @user.followers
   end

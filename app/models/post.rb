@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  has_one_attached :image
   belongs_to :user
   belongs_to :category
   after_initialize :set_default_category, if: :new_record?

@@ -1,0 +1,102 @@
+/* マイページのタイトル */
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* アイコンとフォロー数、フォロワー数のレイアウト */
+.d-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.d-flex img {
+  border-radius: 50%;
+  border: 2px solid #ddd;
+}
+
+.ml-3 {
+  margin-left: 20px;
+}
+
+.ml-3 p {
+  font-size: 1rem;
+}
+
+.ml-3 div {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* ボタンのスタイル */
+.btn-group {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.btn-group .btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+/* 最新の投稿のカードレイアウト */
+.card {
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.card-img-top {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* 投稿一覧のリンク */
+.btn-info {
+  background-color: #17a2b8;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  display: block;
+  margin: 20px auto;
+}
+
+.btn-info:hover {
+  background-color: #138496;
+}
+
+/* ログアウトボタン */
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  display: block;
+  margin: 20px auto;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
