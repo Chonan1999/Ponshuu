@@ -115,3 +115,219 @@ label {
     }
   }
 }
+
+// 投稿詳細
+.post-detail-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post-header {
+  text-align: center;
+  margin-bottom: 20px;
+
+  .post-user {
+    font-size: 1.5rem;
+    color: #333;
+  }
+
+  .user-link {
+    text-decoration: none;
+    color: #007bff;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.post-content {
+  .post-section {
+    margin-bottom: 20px;
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .post-text {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .post-image {
+      width: 100%;
+      border-radius: 8px;
+      margin: 0 auto; 
+      max-width: 50%;
+      height: auto;
+    }
+  }
+}
+
+.post-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-transform: uppercase;
+  }
+}
+
+.comments-section {
+  margin-top: 20px;
+
+  .comments-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .comments-list {
+    list-style: none;
+    padding: 0;
+
+    .comment-item {
+      margin-bottom: 10px;
+      padding: 10px;
+      background: #f9f9f9;
+      border-radius: 5px;
+
+      .comment-text {
+        font-size: 1rem;
+        color: #333;
+      }
+
+      .comment-author {
+        font-size: 0.9rem;
+        color: #777;
+      }
+    }
+  }
+
+  .no-comments {
+    font-size: 1rem;
+    color: #999;
+    text-align: center;
+  }
+}
+
+.comment-form {
+  margin-top: 20px;
+
+  .form-group {
+    margin-bottom: 20px;
+
+    .form-label {
+      font-size: 1rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+  }
+
+  .btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+  }
+}
+
+.back-button {
+  text-align: center;
+  margin-top: 20px;
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+  }
+}
+
+.posts-index {
+  // 投稿一覧
+  .post-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  /* 投稿カードのデザイン */
+  .post-card {
+    width: 30%;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* ホバー時にカードを少し大きくする */
+  .post-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  /* 画像部分 */
+  .post-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* コンテンツ部分 */
+  .post-content {
+    padding: 20px;
+  }
+  
+  /* 投稿タイトル */
+  .post-content h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  /* 投稿の説明 */
+  .post-content p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  /* 戻るボタン */
+  .btn-link {
+    font-size: 1.2rem;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .btn-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+}
