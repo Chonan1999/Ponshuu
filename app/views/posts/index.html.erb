@@ -31,4 +31,7 @@
 
 <%= paginate @posts %> 
 
-<%= link_to "マイページに戻る", user_path(current_user),  class: "btn btn-primary mt-3"  %> 
+<div class="d-flex justify-content-center">
+    <%= link_to "マイページに戻る", user_path(current_user), class: "btn btn-primary" %>
+  </div>
+</div>
