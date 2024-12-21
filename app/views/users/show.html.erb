@@ -57,8 +57,8 @@
 
   <!-- 投稿一覧へリンク -->
   <div>
-    <%= link_to "投稿一覧へ", posts_user_path(@user), class: "btn btn-info" %>
-  </div>
+    
+  </div><%= link_to "投稿一覧へ", posts_path, class: "btn btn-info" %>
 
   <%= button_to "ログアウト", destroy_user_session_path, 
         method: :delete, class: "btn btn-danger mt-3" %>

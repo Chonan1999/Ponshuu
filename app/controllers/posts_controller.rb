@@ -22,7 +22,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.published.order(created_at: :desc).page(params[:page]).per(6)
+    @posts = Kaminari.paginate_array(Post.published.order(created_at: :desc)).page(params[:page]).per(6)
   end
 
   def show

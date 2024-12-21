@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/manifest.json', to: redirect('/assets/manifest.json')
   get 'posts/search', to: 'posts#search', as: 'search_posts'
   root to: "tops#home"
+  # get 'users/posts', to: 'posts#index', as: 'users_posts'
   devise_for :users
   resources :users, only: [:index, :new, :create, :show, :edit, :update] do
     member do

@@ -1,0 +1,33 @@
+// ページネーションのデザイン
+.pagination{
+    width: fit-content;
+    margin: 25px auto;
+    font-size: 0.8rem;
+    line-height: 2rem;
+  }
+  
+  .first a,
+  .prev a,
+  .page a,
+  .next a,
+  .last a{
+    color: #000000;
+    text-decoration: none;
+    padding: 5px;
+    border: 1px solid #000000;
+  }
+  
+  .first a:hover,
+  .prev a:hover,
+  .page a:hover,
+  .next a:hover,
+  .last a:hover{
+    border: 1px solid #ffffff;;
+    background-color: #000000;
+    color: #ffffff;
+  }
+  
+  span.current{
+    color: #777777;
+  }
+  
