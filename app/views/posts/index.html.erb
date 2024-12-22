@@ -21,8 +21,8 @@
         <!-- 投稿内容部分 -->
         <div class="post-content">
           <h3><%= truncate(post.name, length: 30) %></h3>
-          <p>日本酒名: <%= post.name %></p>
-          <p>感想: <%= truncate(post.text, length: 100) %></p>
+          <!-- <p>日本酒名: <%= post.name %></p> -->
+          <p><%= truncate(post.text, length: 100) %></p>
         </div>
       <% end %>
     </div>

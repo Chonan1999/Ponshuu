@@ -331,3 +331,86 @@ label {
     text-decoration: underline;
   }
 }
+
+// 下書きのデザイン
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+/* 下書き一覧のコンテナ */
+.drafts-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* タイトル */
+.drafts-container h1 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* 下書きのカード */
+.draft-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  transition: box-shadow 0.3s ease;
+}
+
+.draft-card:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 日本酒名や投稿日時 */
+.draft-info {
+  font-size: 16px;
+  color: #555;
+}
+
+.draft-info span {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* ボタン */
+.draft-actions button {
+  padding: 8px 16px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.draft-actions .edit-btn {
+  background-color: #007bff;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.draft-actions .edit-btn:hover {
+  background-color: #0056b3;
+}
+
+.draft-actions .delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.draft-actions .delete-btn:hover {
+  background-color: #a71d2a;
+}

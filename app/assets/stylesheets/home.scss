@@ -12,15 +12,22 @@
   
   
   .cover {
-    height: 100%;
-    width: 100%;
-    display: table;
-    background-image: asset-url('top_image.jpg');
-    background-color: rgba(255, 255, 255, 0.4);
-    background-blend-mode: lighten;
-    background-size: cover;
-    background-position: center;
-  }
+      height: 100vh; 
+      width: 100%; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url('/assets/top_image.jpg'); 
+      background-color: rgba(203, 205, 214, 0.6); 
+      background-blend-mode: overlay; 
+      background-size: cover; 
+      background-position: center center; 
+      background-repeat: no-repeat; 
+      margin: 0; 
+      padding: 0; 
+      overflow: hidden; 
+    }
+
   
   
   .text-center {
@@ -36,7 +43,7 @@
     padding: 0.6rem 1.5rem; /* 上下・左右の余白を調整してボタンを大きく */
     border-radius: 0.3rem; /* ボタンの角を少し丸く */
     // font-weight: bold; /* 文字を太字に */
-    transition: all 0.3s ease;
+    // transition: all 0.3s ease;
     margin: 0 0.5rem;
   }
   
@@ -46,4 +53,3 @@
     border: 2px solid #0a3a6da9; /* ボーダーを維持 */
     text-decoration: none; /* ホバー時の下線を消す */
   }
-
