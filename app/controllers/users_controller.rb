@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.page(params[:page]).per(5).reverse_order
   end
 
   def show
@@ -57,7 +57,7 @@ class UsersController < ApplicationController
     if @user == current_user
       @posts = @user.posts.order(created_at: :desc).page(params[:page])
     else
-      @posts = @user.posts.published.order(created_at: :desc)
+      @posts = @user.posts.published.order(created_at: :desc).page(params[:page])
     end
   end
 

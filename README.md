@@ -1,24 +1,15 @@
-# README
+# Ponshuu
+<img src="https://github.com/user-attachments/assets/ac92acd0-2696-4fdb-b874-714ab4c577cf" width="150">
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### サイトテーマ
+#### 日本酒を楽しみたい人たちのためのコミュニティサイト
 
-Things you may want to cover:
+### テーマを選んだ理由
+#### 種類が豊富で呑み方も人それぞれの日本酒の世界は、ネットで調べるだけではなかなか追求しきれません。全国各地の呑兵衛さんたちが勧めるお酒や、美味しい呑み方、さらには日本酒イベントなどを共有することで、もっと日本酒の世界を広げていけたらと思い、このテーマを選びました。
 
-* Ruby version
+### ターゲットユーザー
+#### 日本酒についてこれから知りたいビギナーさんから、「日本酒無しでは生きていけない！」という愛好家の方まで、日本酒に興味があるすべての人たち
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### 主な利用シーン
+- おすすめの日本酒を紹介したいとき。
+- 気になる日本酒の情報を集めたいとき。

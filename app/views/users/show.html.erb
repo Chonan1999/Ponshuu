@@ -1,4 +1,4 @@
-<body class="users-show">
+<div class="users-show">
   <h1><%= @user.handle_name %> さんのマイページ</h1>
 
   <!-- アイコンとフォロー数、フォロワー数 -->
@@ -55,5 +55,5 @@
     <% end %>
   </div>
 
-  </div><%= link_to "投稿一覧へ", posts_path, class: "btn btn-info" %>
-</body>
+  </div><%= link_to "投稿一覧へ", posts_user_path, class: "btn btn-info" %>
+</div>
