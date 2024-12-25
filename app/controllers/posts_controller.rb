@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :publish]
+  before_action :authorize_user!, only: [:edit, :update, :destroy]
 
   def new
     @post = Post.new
@@ -16,7 +18,7 @@ class PostsController < ApplicationController
   end
 
   def publish
-    @post.draft?
+    @post.draft? && @post.user == current_user
     @post.update(status: "published") 
     redirect_to @post
   end
