@@ -2,6 +2,16 @@
   <%= stylesheet_link_tag "posts" %>
 <% end %>
 
+<div class="post-header">
+  <% if @post.user == current_user %>
+    <h2>あなたの投稿</h2>
+  <% else %>
+    <h2>
+    <%= link_to @post.user.handle_name, user_path(@post.user), class: "text-primary" %>
+    <span class="text-dark">さんの投稿</span>
+  <% end %>
+</div>
+
   <!-- 投稿内容 -->
   <div class="post-content">
     <div class="post-section">

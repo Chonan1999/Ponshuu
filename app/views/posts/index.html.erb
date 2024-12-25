@@ -3,7 +3,7 @@
   <% if @user == current_user %>
     <h1>自分の投稿一覧</h1>
   <% else %>
-    <h1><%= @user.handle_name %>さんの投稿一覧</h1>
+    <h1><%= link_to "#{@user.handle_name} さんの投稿一覧", user_path(@user), class: "text-primary" %></h1>
   <% end %>
 <% else %>
   <h1>投稿一覧</h1>
@@ -23,6 +23,9 @@
           <h3><%= truncate(post.name, length: 30) %></h3>
           <!-- <p>日本酒名: <%= post.name %></p> -->
           <p><%= truncate(post.text, length: 100) %></p>
+          <p class="text-muted">
+            投稿者: <%= link_to post.user.handle_name, user_path(post.user), class: "text-secondary" %>
+          </p>
         </div>
       <% end %>
     </div>

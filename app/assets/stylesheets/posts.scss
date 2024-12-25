@@ -414,3 +414,14 @@ body {
 .draft-actions .delete-btn:hover {
   background-color: #a71d2a;
 }
+
+.post-header h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.text-primary {
+  text-decoration: none;
+}
+.text-primary:hover {
+  text-decoration: underline;
+}
