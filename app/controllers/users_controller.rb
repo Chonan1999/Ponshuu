@@ -53,13 +53,15 @@ class UsersController < ApplicationController
   end
 
   def posts
-    @user = User.find(params[:id]) 
+    @user = User.find(params[:id]) # URLのIDからユーザーを取得
+  
+    # 自分の投稿のみ取得（公開済み投稿だけ取得する）
     if @user == current_user
-      @posts = @user.posts.order(created_at: :desc).page(params[:page])
+      @posts = @user.posts.published.order(created_at: :desc).page(params[:page])
     else
       @posts = @user.posts.published.order(created_at: :desc).page(params[:page])
-    end
-  end
+    end 
+  end 
 
   private
 
