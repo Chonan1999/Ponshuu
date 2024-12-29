@@ -24,8 +24,15 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Kaminari.paginate_array(Post.published.order(created_at: :desc)).page(params[:page]).per(6)
-  end
+    if params[:user_id]
+      @user = User.find(params[:user_id])
+      @posts = Kaminari.paginate_array(@user.posts.published.order(created_at: :desc)).page(params[:page]).per(6)
+      Rails.logger.debug "Posts: #{@posts.inspect}"
+    else
+      @user = nil
+      @posts = Kaminari.paginate_array(Post.published.order(created_at: :desc)).page(params[:page]).per(6)
+    end
+  end  
 
   def show
     @post = Post.find(params[:id])

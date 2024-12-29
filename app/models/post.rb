@@ -7,7 +7,7 @@ class Post < ApplicationRecord
   attachment :profile_image
   attachment :image
 
-  scope :published, -> { where(status: '1') }
+  scope :published, -> { where(status: "published") }
   enum status: { published: 0, draft: 1 }
 
   private
