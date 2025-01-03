@@ -8,12 +8,12 @@
       <p><strong>自己紹介:</strong> <%= @user.profile %></p>
       <div>
         フォロー数：<span id="followings-count">
-          <%= link_to "#{current_user.followings.count}人", followings_user_path(current_user) %>
+          <%= link_to "#{current_user.followings_users.count}人", followings_user_path(current_user) %>
         </span>
       </div>
       <div>
         フォロワー数：<span id="followers-count">
-          <%= link_to "#{@user.followers.count}人", followers_user_path(@user) %>
+          <%= link_to "#{@user.followers_users.count}人", followers_user_path(@user) %>
         </span>
       </div>
     </div>
