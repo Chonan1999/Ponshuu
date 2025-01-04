@@ -6,10 +6,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @recent_posts = @user.posts.published.order(created_at: :desc).limit(3)
-    @following_users = @user.following_user
-    @follower_users = @user.follower_user
-    # @following_users = @user.followings
-    # @follower_users = @user.followers
+    # @following_users = @user.followings_user
+    # @follower_users = @user.followers_user
+    @following_users = @user.followings
+    @follower_users = @user.followers
   end
 
   def new
@@ -46,12 +46,14 @@ class UsersController < ApplicationController
 
   def followings
     @user = User.find(params[:id])
-    @users = @user.followings
+    # @users = @user.followings
+    @followings = @user.followings
   end
   
   def followers
     @user = User.find(params[:id])
-    @users = @user.followers
+    @followers = @user.followers
+    # @users = @user.followers
   end
 
   def posts

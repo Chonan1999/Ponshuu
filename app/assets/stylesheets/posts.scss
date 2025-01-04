@@ -261,6 +261,12 @@ label {
   }
 }
 
+.user-link {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .posts-index {
   // 投稿一覧
   .post-list {
@@ -286,6 +292,19 @@ label {
     transform: translateY(-10px);
   }
   
+  .post-author {
+    font-size: 0.9em;
+    color: #555; 
+    margin-bottom: 15px;
+  }
+
+  .user-link {
+    color: #007bff;
+    text-decoration: underline;
+    font-weight: bold;
+    cursor: pointer;
+  }  
+
   /* 画像部分 */
   .post-image {
     width: 100%;
@@ -319,18 +338,18 @@ label {
     margin-bottom: 10px;
   }
   
+  .btn-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+}
+
   /* 戻るボタン */
   .btn-link {
     font-size: 1.2rem;
     color: #007bff;
     text-decoration: none;
   }
-  
-  .btn-link:hover {
-    color: #0056b3;
-    text-decoration: underline;
-  }
-}
 
 // 下書きのデザイン
 body {

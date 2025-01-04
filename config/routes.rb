@@ -7,12 +7,12 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :new, :create, :show, :edit, :update] do
     member do
       # get :followers, :followings, :posts
-      get :follows, :followers
+      get :followers, :followings, :posts
     end
     resource :relationships, only: [:create, :destroy]
   end
 
-  # resources :relationships, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
 
   resources :posts do
     collection do

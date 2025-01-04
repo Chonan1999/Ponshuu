@@ -1,4 +1,4 @@
-# Pin npm packages by running ./bin/importmap
+pin "example", to: "example.js"
 
 pin "application"
 pin "@hotwired/turbo-rails", to: "@hotwired--turbo-rails.js" # @8.0.12

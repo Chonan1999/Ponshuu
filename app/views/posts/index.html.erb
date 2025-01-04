@@ -21,17 +21,21 @@
         <!-- 投稿内容部分 -->
         <div class="post-content">
           <h3><%= truncate(post.name, length: 30) %></h3>
-          <!-- <p>日本酒名: <%= post.name %></p> -->
           <p><%= truncate(post.text, length: 100) %></p>
         </div>
       <% end %>
+
+      <!-- 投稿者名を表示 -->
+      <div class="post-content text-center">
+        投稿者: <%= link_to post.user.handle_name, user_path(post.user), class: "user-link" %>
+      </div>
     </div>
   <% end %>
 </div>
 
-<%= paginate @posts %> 
+<%= paginate @posts %>
 
 <div class="d-flex justify-content-center">
-    <%= link_to "マイページに戻る", user_path(current_user), class: "btn btn-primary" %>
-  </div>
+  <%= link_to "マイページに戻る", user_path(current_user), class: "btn btn-primary" %>
 </div>
+</body>

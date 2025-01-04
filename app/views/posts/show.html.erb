@@ -2,22 +2,30 @@
   <%= stylesheet_link_tag "posts" %>
 <% end %>
 
+<div class="post-content">
+
+  <!-- 投稿者名 -->
+  <div class="post-author">
+    <p>
+      投稿者: 
+      <%= link_to @post.user.handle_name, user_path(@post.user), class: "user-link" %>
+    </p>
+  </div>
+
   <!-- 投稿内容 -->
-  <div class="post-content">
-    <div class="post-section">
-      <h3 class="section-title">日本酒</h3>
-      <p class="post-text"><%= @post.name %></p>
-    </div>
+  <div class="post-section">
+    <h3 class="section-title">日本酒</h3>
+    <p class="post-text"><%= @post.name %></p>
+  </div>
 
-    <div class="post-section">
-      <h3 class="section-title">感想</h3>
-      <p class="post-text"><%= @post.text %></p>
-    </div>
+  <div class="post-section">
+    <h3 class="section-title">感想</h3>
+    <p class="post-text"><%= @post.text %></p>
+  </div>
 
-    <div class="post-section">
-      <h3 class="section-title">画像</h3>
-      <%= attachment_image_tag @post, :image, format: 'jpeg', size: "300x300", class: "post-image" %>
-    </div>
+  <div class="post-section">
+    <h3 class="section-title">画像</h3>
+    <%= attachment_image_tag @post, :image, format: 'jpeg', size: "300x300", class: "post-image" %>
   </div>
 
   <!-- 編集・削除ボタン -->
@@ -38,7 +46,10 @@
           <% @post.comments.each do |comment| %>
             <li class="comment-item">
               <span class="comment-text"><%= comment.comment %></span>
-              <span class="comment-author">（投稿者: <%= comment.user.handle_name %>）</span>
+              <span class="comment-author">
+                （投稿者: 
+                <%= link_to comment.user.handle_name, user_path(comment.user), class: "user-link" %>）
+              </span>
             </li>
           <% end %>
         </ul>
@@ -64,6 +75,6 @@
 
   <!-- 戻るボタン -->
   <div class="back-button">
-    </div><%= link_to "投稿一覧へ", posts_path, class: "btn btn-info" %>
+    <%= link_to "投稿一覧へ", posts_path, class: "btn btn-info" %>
   </div>
 </div>
