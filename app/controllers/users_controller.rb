@@ -6,10 +6,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @recent_posts = @user.posts.published.order(created_at: :desc).limit(3)
-    # @following_users = @user.followings_user
-    # @follower_users = @user.followers_user
-    @following_users = @user.followings
-    @follower_users = @user.followers
+    @following_users = @user.following_user
+    @follower_users = @user.follower_user
+    # @following_users = @user.followings
+    # @follower_users = @user.followers
   end
 
   def new
@@ -44,16 +44,14 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
-  def followings
-    @user = User.find(params[:id])
-    # @users = @user.followings
-    @followings = @user.followings
+  def follows
+    user = User.find(params[:id])
+    @users = user.following_user.page(params[:page]).per(3).reverse_order
   end
   
   def followers
-    @user = User.find(params[:id])
-    @followers = @user.followers
-    # @users = @user.followers
+    user = User.find(params[:id])
+    @users = user.follower_user.page(params[:page]).per(3).reverse_order
   end
 
   def posts
