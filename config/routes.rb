@@ -11,8 +11,6 @@ Rails.application.routes.draw do
     resource :relationships, only: [:create, :destroy]
   end
 
-  resources :relationships, only: [:create, :destroy]
-
   resources :posts do
     collection do
       get :confirm, :search
