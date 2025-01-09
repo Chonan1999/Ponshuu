@@ -110,4 +110,12 @@ class PostsController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
+
+
+  def authorize_user!
+    post = Post.find(params[:id])
+    unless post.user == current_user
+      redirect_to root_path, alert: "権限がありません"
+    end
+  end
 end
