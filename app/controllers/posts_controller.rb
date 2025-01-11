@@ -70,7 +70,11 @@ class PostsController < ApplicationController
   def destroy
     post = Post.find(params[:id])
     post.destroy
-    redirect_to posts_path
+    redirect_to posts_path, status: :see_other
+  end
+
+  def confirm
+    @drafts = current_user.posts.where(status: "draft").order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def search
