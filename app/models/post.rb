@@ -1,11 +1,11 @@
 class Post < ApplicationRecord
-  has_one_attached :image
+  has_one_attached :image  # 投稿画像の管理（Active Storage）
+  
   belongs_to :user
   belongs_to :category
-  after_initialize :set_default_category, if: :new_record?
   has_many :comments, dependent: :destroy
-  attachment :profile_image
-  attachment :image
+
+  after_initialize :set_default_category, if: :new_record?
 
   scope :published, -> { where(status: "published") }
   enum status: { published: 0, draft: 1 }
@@ -15,5 +15,4 @@ class Post < ApplicationRecord
   def set_default_category
     self.category_id ||= Category.find_by(name: "純米系")&.id
   end
-
 end

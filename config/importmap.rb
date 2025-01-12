@@ -9,3 +9,4 @@ pin "@hotwired/turbo", to: "@hotwired--turbo.js" # @8.0.12
 pin "@rails/actioncable/src", to: "@rails--actioncable--src.js" # @7.2.200
 pin "bootstrap", to: "bootstrap.min.js", preload: true
 pin "@popperjs/core", to: "popper.js", preload: true
+pin "@rails/actioncable", to: "actioncable.esm.js"
