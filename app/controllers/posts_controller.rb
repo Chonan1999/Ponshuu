@@ -115,7 +115,6 @@ class PostsController < ApplicationController
     @user = User.find(params[:id])
   end
 
-
   def authorize_user!
     post = Post.find(params[:id])
     unless post.user == current_user
