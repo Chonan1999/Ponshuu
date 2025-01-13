@@ -4,7 +4,6 @@ class Post < ApplicationRecord
   belongs_to :category
   after_initialize :set_default_category, if: :new_record?
   has_many :comments, dependent: :destroy
-  # attachment :profile_image
   attachment :image
 
   scope :published, -> { where(status: "published") }

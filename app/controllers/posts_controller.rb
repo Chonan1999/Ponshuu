@@ -18,16 +18,17 @@ class PostsController < ApplicationController
   end
 
   def publish
+    @post = Post.find(params[:id])
+  
     @post.draft? && @post.user == current_user
-    @post.update(status: "published") 
-    redirect_to @post
+    @post.update(status: "published")
+    redirect_to posts_path
   end
 
   def index
     if params[:user_id]
       @user = User.find(params[:user_id])
-      @posts = Kaminari.paginate_array(@user.posts.published.order(created_at: :desc)).page(params[:page]).per(6)
-      Rails.logger.debug "Posts: #{@posts.inspect}"
+      @posts = @user.posts.published.order(created_at: :desc).page(params[:page]).per(6)
     else
       @user = nil
       @posts = Kaminari.paginate_array(Post.published.order(created_at: :desc)).page(params[:page]).per(6)

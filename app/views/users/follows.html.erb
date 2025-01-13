@@ -1,10 +1,27 @@
-<h1><%= @user.handle_name %> さんのフォロー一覧</h1>
+<div class="cover-user-index">
+  <div class="container d-flex flex-column align-items-center">
+    <div class="row mt-5 w-50">
+      <h1 class="font-weight-normal"><%= @user.handle_name %> さんのフォロワー一覧</h1>
+    </div>
 
-<% @users.each do |user| %>
-  <div>
-    <%= link_to user.handle_name, user_path(user) %> 
-    <%= link_to "投稿一覧を見る", posts_user_path(user) %>
+    <div class="row mt-3 w-50">
+      <% @users.each do |user| %>
+        <div class="one-post card mt-3">
+          <%= link_to user_path(user) do %>
+            <div class="d-flex align-items-center">
+              <!-- プロフィール画像 -->
+              <%= attachment_image_tag user, :profile_image, size: '50x50', fallback: "no_image.svg", class: "mt-3 profile-img" %>
+
+              <!-- ユーザー名 -->
+              <p class="caption h4 mt-4 ml-3"><%= user.handle_name %></p>
+            </div>
+            <!-- 投稿数 -->
+            <p class="caption ml-3"><%= "#{user.posts.count} 投稿" %></p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <%= paginate @users %>
+    <%= link_to "マイページに戻る", user_path(@user), class: "btn btn-secondary mt-3" %>
   </div>
-<% end %>
-
-<%= link_to "マイページに戻る", user_path(@user), class: "button" %>

@@ -33,6 +33,12 @@
     <div class="post-actions">
       <%= link_to '編集する', edit_post_path(@post.id), class: "btn btn-primary" %>
       <%= link_to '削除する', post_path(@post.id), data: { turbo_method: :delete, turbo_confirm: "本当に消しますか？" }, class: "btn btn-danger" %>
+
+      <% if @post.draft? %>
+        <%= link_to "投稿する", publish_post_path(@post.id), data: { turbo_method: :patch, turbo_confirm: "この投稿を公開しますか？" }, class: "btn btn-success" %>
+      <% end %>
+
+      <%= link_to "戻る", posts_path, class: "btn btn-secondary" %>
     </div>
   <% end %>
 
