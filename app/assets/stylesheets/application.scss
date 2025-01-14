@@ -1,14 +1,16 @@
 @import "bootstrap";
 @import "home";
+@import "signup";
 @import "user";
 @import "posts";
 @import "kaminari";
 
 
+html,
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* ページ全体を画面全体の高さにする */
+  min-height: 100vh; 
   margin: 0;
 }
 
