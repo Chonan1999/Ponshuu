@@ -24,17 +24,7 @@
             <li><%= link_to "ログアウト", destroy_user_session_path, class: "logout-link" %></li>
           </ul>
         </nav>
-      </header>
+       </header>
     <% end %>
-
-    <!-- メインコンテンツ -->
-    <main class="main-content">
-      <%= yield %>
-    </main>
-
-    <!-- フッター -->
-    <footer class="main-footer">
-      <p>&copy; 2024 Ponshuu - 日本酒交流アプリ</p>
-    </footer>
+    <%= yield %>
   </body>
-</html>

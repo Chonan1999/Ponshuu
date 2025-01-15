@@ -1,29 +1,27 @@
-@import "bootstrap";
-@import "home";
-@import "signup";
-@import "user";
-@import "posts";
-@import "kaminari";
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree .
+ */
+ @import "bootstrap";
 
+ html,
+ body{
+     width: 100%;
+     height: 100%;
+     margin: 0;
+     padding: 0;
+ } 
 
-html,
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; 
-  margin: 0;
-}
-
-.main-content {
-  flex: 1;
-  min-height: calc(100vh - 100px); 
-}
-
-body.tops.home {
-  margin: 0;
-  padding: 0;
-  max-width: 100%;
-}
 
 /* ヘッダー */
 .main-header {
@@ -65,11 +63,3 @@ body.tops.home {
   text-decoration: underline;
 }
 
-
-/* フッター */
-.main-footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-}
