@@ -71,3 +71,5 @@ gem 'jquery-rails'
 gem "sassc-rails"
 
 # gem 'will_paginate', '~> 3.1'
+
+gem 'devise-i18n'

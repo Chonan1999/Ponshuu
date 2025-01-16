@@ -7,7 +7,6 @@
 
   <h2>感想</h2>
     <%= f.text_area :text %><br>
-  </div>
 
   <%= form_with model: @post, local: true do |f| %>
     <div>
@@ -18,11 +17,7 @@
     <div class="form-group">
       <%= f.select :status, Post.statuses.keys.map { |k| [t("enums.post.status.#{k}"),k]}, {}, {class: "custom-select w-25 mb-3"} %>
     </div>
-  
-    <div>
-      <%= f.submit "更新する", class: "button" %>
-    </div>
-  <% end %>  
+   
 
   <div class="field">
     <%= f.label :image, "画像" %><br>
@@ -35,6 +30,11 @@
       <%= attachment_image_tag @post, :image, size: "150x150" %>
     </div>
   <% end %>
+ <br>
+  <div>
+    <%= f.submit "更新する", class: "btn btn-success" %>
+  </div> 
 <% end %>
 
 <%= link_to "戻る", @post %>
+<% end %> 
