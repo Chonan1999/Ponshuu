@@ -1,134 +1,148 @@
-.user-show {
-  /* マイページのタイトル */
-  h1 {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-align: center;
-  }
+/* プロフィールセクション */
+.profile-section {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
 
-  /* プロフィール画像、自己紹介、フォロー数、フォロワー数のレイアウト */
-  .profile-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 40px; /* 下部に余白 */
-  }
+.profile-card {
+  width: 600px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
 
-  /* プロフィール画像のスタイル */
-  .profile-section img {
-    border-radius: 50%;
-    border: 4px solid #ddd;
-    width: 150px;
-    height: 150px;
-    margin-bottom: 15px;
-  }
+.profile-image {
+  margin-bottom: 15px;
+}
 
-  /* 自己紹介・フォロー数・フォロワー数 */
-  .profile-info {
-    text-align: center;
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 20px;
+.handle-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 
-    .handle-name {
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
+.profile-bio {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 20px;
+}
 
-    .counts {
-      margin-top: 10px;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
+.follow-info {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 15px;
+}
 
-      p {
-        font-size: 1rem;
-        color: #777;
-      }
-    }
-  }
+.follow-card {
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+}
 
-  /* ボタンのグループ */
-  .btn-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    margin-top: 30px;
+.follow-count {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #007bff;
+}
 
-    .btn {
-      padding: 12px 25px;
-      font-size: 1.1rem;
-      width: 200px; /* ボタンの幅を統一 */
-      border-radius: 25px; /* 丸みを追加 */
-      border: none;
-      cursor: pointer;
-    }
+.btn-group {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
 
-    /* ボタンのカラー */
-    .btn-primary {
-      background-color: #007bff;
-      color: white;
+.btn-group .btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+}
 
-      &:hover {
-        background-color: #0056b3;
-      }
-    }
+/* 最新の投稿 */
+.recent-posts {
+  text-align: center;
+  margin-top: 50px;
+}
 
-    .btn-secondary {
-      background-color: #28a745;
-      color: white;
+.section-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
 
-      &:hover {
-        background-color: #218838;
-      }
-    }
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 横に3列 */
+  gap: 10px; /* カード間の余白 */
+  justify-items: center; /* カードを中央に配置 */
+}
 
-    .btn-info {
-      background-color: #17a2b8;
-      color: white;
+.post-card {
+  width: 90%; /* カードの幅を調整 */
+  max-width: 500px; /* カードの最大幅 */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
 
-      &:hover {
-        background-color: #138496;
-      }
-    }
-  }
+.post-card:hover {
+  transform: translateY(-5px); /* カードを浮き上がらせる */
+}
 
-  /* 投稿一覧ボタン */
-  .btn-info {
-    background-color: #17a2b8;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-    display: block;
-    margin: 20px auto;
+.thumbnail-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover; /* 画像をカード内に収める */
+}
 
-    &:hover {
-      background-color: #138496;
-    }
-  }
+/* サムネイルがない場合のスタイル */
+.placeholder-thumbnail {
+  width: 100%;
+  height: 150px;
+  background-color: #f0f0f0; /* グレー背景 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ccc;
+  font-size: 1.2rem;
+}
 
-  /* ログアウトボタン */
-  .btn-danger {
-    background-color: #3559dc;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-    display: block;
-    margin: 20px auto;
+.post-content {
+  padding: 15px;
+}
 
-    &:hover {
-      background-color: #138496;
-      text-decoration: none;
-    }
-  }
+/* 投稿一覧ボタン */
+.btn-info {
+  background-color: #17a2b8;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
 
-  .users-page {
-    margin: 30px;
-    padding: 30px;
+  &:hover {
+    background-color: #138496;
+    color: #fff;
   }
 }
+
+.btn-info:hover {
+  background-color: #138496;
+  color: #fff;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; /* 上下の余白を調整 */
+}
+
