@@ -26,12 +26,13 @@
         <div class="box-login">
           <%= f.submit "新規登録" %>
         </div>
-      <% end %>
+       
+        <div class="box-newusr">
+          <p><span>------------</span>既に登録されていますか？ <span>------------</span></p>
+          <%= link_to "ログイン", new_session_path(resource_name) ,class: "loginbtn" %>
+        </div>
 
-      <div class="box-newusr">
-        <p>既に登録されていますか？</p>
-        <%= link_to "ログイン", new_session_path(resource_name) ,class: "loginbtn" %>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>
