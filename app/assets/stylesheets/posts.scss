@@ -1,435 +1,134 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* 基本設定 */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
+  font-family: "Arial", sans-serif;
+  background-color: #f5f5f5;
   color: #333;
   padding: 20px;
-  margin: 0;
 }
 
+/* コンテナ */
 .container {
-  margin: 0 auto;
-  max-width: 1200px; /* 最大幅を設定 */
+  margin: 30px auto;
+  max-width: 800px; /* 最大幅を設定 */
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.8s ease-out;
 }
 
+/* タイトル */
 h1 {
   text-align: center;
-  font-size: 2.5rem;
-  margin: 30px 0;
+  font-size: 2rem;
+  margin: 20px 0 20px;
+  color: #333;
 }
 
-form {
-  background-color: #fff;
-  padding: 40px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 0 auto;
-  width: 80%;
-  max-width: 800px;
-  animation: fadeIn 1s ease-out;
+/* フォーム */
+.post-form {
+  margin-top: 20px;
 }
 
 .form-group {
   margin-bottom: 20px;
 }
 
+.form-label {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
 .form-control,
 .custom-select,
 .form-control-file {
   width: 100%;
-  padding: 15px;
-  margin-bottom: 15px;
+  padding: 12px;
+  font-size: 1rem;
   border-radius: 5px;
   border: 1px solid #ddd;
 }
 
-.btn {
-  padding: 12px 25px;
+/* フォーム内のラベルと入力フィールドを横並びに */
+.form-inline {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.form-inline .form-label {
   font-size: 1.2rem;
+  font-weight: bold;
+  margin-right: 15px;
+  white-space: nowrap; /* テキストが改行されないように */
+}
+
+.form-inline .form-control {
+  flex-grow: 1; /* 入力欄が余白を埋めるように */
+}
+
+textarea.form-control {
+  resize: none;
+}
+
+/* ボタン配置 */
+.form-actions {
+  display: flex;
+  justify-content: center; /* ボタンを中央に配置 */
+  gap: 15px; /* ボタン間の余白を適度に調整 */
+  margin-top: 30px;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 1rem;
   border-radius: 5px;
+  text-transform: uppercase;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .btn-primary {
   background-color: #007bff;
-  color: white;
+  color: #fff;
   border: none;
+}
 
-  &:hover {
-    background-color: #0056b3;
-  }
+.btn-primary:hover {
+  background-color: #0056b3;
 }
 
 .btn-secondary {
   background-color: #6c757d;
-  color: white;
+  color: #fff;
   border: none;
-
-  &:hover {
-    background-color: #5a6268;
-  }
 }
 
-h4,
-label {
-  font-family: "YuGothic", "Hiragino Kaku Gothic ProN", Arial, sans-serif;
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  color: #333;
+.btn-secondary:hover {
+  background-color: #5a6268;
 }
 
+.btn-info {
+  background-color: #17a2b8;
+  color: #fff;
+  border: none;
+}
+
+.btn-info:hover {
+  background-color: #138496;
+}
+
+/* アニメーション */
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(30px);
   }
   100% {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.links {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-
-  a {
-    padding: 10px;
-    margin: 0 10px;
-    font-size: 1.2rem;
-    background-color: #0a3a6da9;
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
-
-    &:hover {
-      background-color: #0056b3;
-      text-decoration: none;
-    }
-  }
-}
-
-// 投稿詳細
-.post-detail-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.post-header {
-  text-align: center;
-  margin-bottom: 20px;
-
-  .post-user {
-    font-size: 1.5rem;
-    color: #333;
-  }
-
-  .user-link {
-    text-decoration: none;
-    color: #007bff;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-}
-
-.post-content {
-  .post-section {
-    margin-bottom: 20px;
-
-    .section-title {
-      font-size: 1.2rem;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .post-text {
-      font-size: 1rem;
-      color: #555;
-    }
-
-    .post-image {
-      width: 100%;
-      border-radius: 8px;
-      margin: 0 auto; 
-      max-width: 50%;
-      height: auto;
-    }
-  }
-}
-
-.post-actions {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  margin-bottom: 20px;
-
-  .btn {
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-    text-transform: uppercase;
-  }
-}
-
-.comments-section {
-  margin-top: 20px;
-
-  .comments-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-
-  .comments-list {
-    list-style: none;
-    padding: 0;
-
-    .comment-item {
-      margin-bottom: 10px;
-      padding: 10px;
-      background: #f9f9f9;
-      border-radius: 5px;
-
-      .comment-text {
-        font-size: 1rem;
-        color: #333;
-      }
-
-      .comment-author {
-        font-size: 0.9rem;
-        color: #777;
-      }
-    }
-  }
-
-  .no-comments {
-    font-size: 1rem;
-    color: #999;
-    text-align: center;
-  }
-}
-
-.comment-form {
-  margin-top: 20px;
-
-  .form-group {
-    margin-bottom: 20px;
-
-    .form-label {
-      font-size: 1rem;
-      font-weight: bold;
-      margin-bottom: 5px;
-      display: block;
-    }
-
-    .form-control {
-      width: 100%;
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #ddd;
-    }
-  }
-
-  .btn {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    border-radius: 5px;
-  }
-}
-
-.back-button {
-  text-align: center;
-  margin-top: 20px;
-
-  .btn {
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-  }
-}
-
-.user-link {
-  color: blue;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.posts-index {
-  // 投稿一覧
-  .post-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-  }
-  
-  /* 投稿カードのデザイン */
-  .post-card {
-    width: 30%;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  /* ホバー時にカードを少し大きくする */
-  .post-card:hover {
-    transform: translateY(-10px);
-  }
-  
-  .post-author {
-    font-size: 0.9em;
-    color: #555; 
-    margin-bottom: 15px;
-  }
-
-  .user-link {
-    color: #007bff;
-    text-decoration: underline;
-    font-weight: bold;
-    cursor: pointer;
-  }  
-
-  /* 画像部分 */
-  .post-image {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-  }
-  
-  .card-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  /* コンテンツ部分 */
-  .post-content {
-    padding: 20px;
-  }
-  
-  /* 投稿タイトル */
-  .post-content h3 {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #333;
-  }
-  
-  /* 投稿の説明 */
-  .post-content p {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 10px;
-  }
-  
-  .btn-link:hover {
-    color: #0056b3;
-    text-decoration: underline;
-  }
-}
-
-  /* 戻るボタン */
-  .btn-link {
-    font-size: 1.2rem;
-    color: #007bff;
-    text-decoration: none;
-  }
-
-// 下書きのデザイン
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  margin: 0;
-  padding: 0;
-}
-
-/* 下書き一覧のコンテナ */
-.drafts-container {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* タイトル */
-.drafts-container h1 {
-  font-size: 24px;
-  color: #333;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-/* 下書きのカード */
-.draft-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px;
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #fff;
-  transition: box-shadow 0.3s ease;
-}
-
-.draft-card:hover {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* 日本酒名や投稿日時 */
-.draft-info {
-  font-size: 16px;
-  color: #555;
-}
-
-.draft-info span {
-  display: block;
-  margin-bottom: 5px;
-}
-
-/* ボタン */
-.draft-actions button {
-  padding: 8px 16px;
-  font-size: 14px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.draft-actions .edit-btn {
-  background-color: #007bff;
-  color: #fff;
-  margin-right: 10px;
-}
-
-.draft-actions .edit-btn:hover {
-  background-color: #0056b3;
-}
-
-.draft-actions .delete-btn {
-  background-color: #dc3545;
-  color: #fff;
-}
-
-.draft-actions .delete-btn:hover {
-  background-color: #961a26;
 }
