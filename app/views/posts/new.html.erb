@@ -6,25 +6,25 @@
       <label for="post_name" class="form-label">日本酒名</label>
       <%= f.text_field :name, class: "form-control", id: "post_name" %>
     </div>
-
+    <p>
     <!-- 感想 -->
     <div class="form-group">
       <label for="post_text" class="form-label">感想</label>
       <%= f.text_area :text, rows: 4, class: "form-control", id: "post_text" %>
     </div>
-
+    <p>
     <!-- カテゴリー -->
     <div class="form-inline">
       <label for="post_category_id" class="form-label">カテゴリー</label>
       <%= f.collection_select :category_id, Category.all, :id, :name, prompt: "カテゴリーを選択", class: "form-control ml-3", id: "post_category_id" %>
     </div>
-
+    <p>
     <!-- 画像 -->
     <div class="form-group">
-      <label for="post_image" class="form-label">画像</label>
+    <label for="post_image" class="form-label">画像</label>
       <%= f.file_field :image, class: "form-control-file", id: "post_image" %>
     </div>
-
+    <p>
     <!-- ステータス -->
     <div class="form-group">
       <label for="post_status" class="form-label">ステータス</label>

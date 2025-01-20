@@ -28,10 +28,10 @@ class PostsController < ApplicationController
   def index
     if params[:user_id]
       @user = User.find(params[:user_id])
-      @posts = @user.posts.published.order(created_at: :desc).page(params[:page]).per(6)
+      @posts = @user.posts.published.order(created_at: :desc).page(params[:page]).per(8)
     else
       @user = nil
-      @posts = Kaminari.paginate_array(Post.published.order(created_at: :desc)).page(params[:page]).per(6)
+      @posts = Kaminari.paginate_array(Post.published.order(created_at: :desc)).page(params[:page]).per(8)
     end
   end  
 
