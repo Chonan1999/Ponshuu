@@ -73,7 +73,7 @@
   <% end %>
 
   <!-- 戻るボタン -->
-  <div class="back-button">
-    <%= link_to "投稿一覧へ", posts_path, class: "btn btn-success" %>
+  <div class="back-button-container">
+    <%= link_to "戻る", user_path(current_user), class: "btn btn-secondary back-button" %>
   </div>
 </div>

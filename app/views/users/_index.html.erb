@@ -1,14 +1,25 @@
-<div class="row mt-5 w-50">
-<% users.each do |user| %>
-<div class="one-post card mt-3">
-  <%= link_to user_path(user) do %>
-  <div class="d-flex">
-    <%= attachment_image_tag user, :profile_image, size: '50x50', fallback: "no_image.svg", class: "mt-3 profile-img" %>
-    <p class="caption h4 mt-4"><%= user.handle_name %></p>
+<div class="user-list container mt-5">
+  <div class="row justify-content-center">
+    <% users.each do |user| %>
+      <div class="col-md-4 col-sm-6 mb-4">
+        <div class="card shadow-sm h-100">
+          <%= link_to user_path(user), class: "text-decoration-none text-dark" do %>
+            <!-- プロフィール画像 -->
+            <div class="card-header text-center bg-light">
+              <%= attachment_image_tag user, :profile_image, size: '80x80', fallback: "no_image.svg", class: "rounded-circle profile-img" %>
+            </div>
+            <!-- ユーザー情報 -->
+            <div class="card-body text-center">
+              <h5 class="card-title"><%= user.handle_name %></h5>
+              <p class="card-text text-muted"><%= "#{user.posts.count} 投稿" %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
   </div>
-  <p class="caption"><%= "#{user.posts.count} 投稿" %></p>
-  <% end %>
+  <!-- ページネーション -->
+  <div class="d-flex justify-content-center mt-4">
+    <%= paginate users %>
+  </div>
 </div>
-<% end %>
-</div>
-<%= paginate users %>
