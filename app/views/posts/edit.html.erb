@@ -1,40 +1,42 @@
-<h1>編集する</h1>
-<%= form_with model:@post, local:true do |f| %>
-  <div class="field">
-    <%= f.label :name, "日本酒名" %><br>
-    <%= f.text_field :name %>
-  </div>
-
-  <h2>感想</h2>
-    <%= f.text_area :text %><br>
-
+<div class="edit-container">
+  <h1>編集する</h1>
   <%= form_with model: @post, local: true do |f| %>
-    <div>
+    <div class="field">
+      <%= f.label :name, "日本酒名" %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :text, "感想" %>
+      <%= f.text_area :text %>
+    </div>
+
+    <div class="field">
       <%= f.label :category_id, "カテゴリー" %>
       <%= f.collection_select :category_id, Category.all, :id, :name, prompt: "カテゴリーを選択" %>
     </div>
 
-    <div class="form-group">
-      <%= f.select :status, Post.statuses.keys.map { |k| [t("enums.post.status.#{k}"),k]}, {}, {class: "custom-select w-25 mb-3"} %>
-    </div>
-   
-
-  <div class="field">
-    <%= f.label :image, "画像" %><br>
-    <%= f.file_field :image %>
-  </div>
-
-  <% if @post.image.present? %>
     <div class="field">
-      <p>現在の画像:</p>
-      <%= attachment_image_tag @post, :image, size: "150x150" %>
+      <%= f.label :status, "ステータス" %>
+      <%= f.select :status, Post.statuses.keys.map { |k| [t("enums.post.status.#{k}"), k]}, {}, class: "custom-select" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :image, "画像" %>
+      <%= f.file_field :image %>
+    </div>
+
+    <% if @post.image.present? %>
+      <div class="field">
+        <p>現在の画像:</p>
+        <%= attachment_image_tag @post, :image, size: "150x150" %>
+      </div>
+    <% end %>
+
+    <div>
+      <%= f.submit "更新する", class: "btn btn-success" %>
     </div>
   <% end %>
- <br>
-  <div>
-    <%= f.submit "更新する", class: "btn btn-success" %>
-  </div> 
-<% end %>
 
-<%= link_to "戻る", @post %>
-<% end %> 
+  <%= link_to "戻る", @post %>
+</div>

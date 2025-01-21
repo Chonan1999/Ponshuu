@@ -146,3 +146,8 @@
   margin-top: 20px; /* 上下の余白を調整 */
 }
 
+.follow-button-container {
+  display: flex;
+  justify-content: center; /* 横方向のセンタリング */
+  align-items: center; /* 縦方向のセンタリング (必要なら) */
+}

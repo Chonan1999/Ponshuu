@@ -7,6 +7,7 @@
       </div>
       <h2 class="handle-name"><%= @user.handle_name %></h2>
       <p class="profile-bio"><%= @user.profile.presence || "自己紹介がまだありません。" %></p>
+      
       <!-- フォロー/フォロワー -->
       <div class="follow-info">
         <%= link_to follows_user_path(@user), class: "follow-card" do %>
@@ -18,12 +19,22 @@
           <p>フォロワー</p>
         <% end %>
       </div>
+
       <!-- ボタン (自分のマイページのみ表示) -->
       <% if current_user == @user %>
         <div class="btn-group mt-3">
           <%= link_to "日本酒を探す", search_posts_path, class: "btn btn-primary" %>
           <%= link_to "プロフィールを編集する", edit_user_path(@user), class: "btn btn-secondary" %>
           <%= link_to "新規投稿へ", new_post_path, class: "btn btn-success" %>
+        </div>
+      <% else %>
+        <!-- 自分以外のユーザーに表示 -->
+        <div class="follow-button-container mt-3">
+          <% if current_user.following?(@user) %>
+            <%= link_to 'フォロー外す', user_relationships_path(@user.id), data: { turbo_method: :delete }, class: "btn btn-danger" %>
+          <% else %>
+            <%= link_to 'フォローする', user_relationships_path(@user.id), data: { turbo_method: :post }, class: "btn btn-success" %>
+          <% end %>
         </div>
       <% end %>
     </div>
@@ -51,12 +62,11 @@
           <% end %>
         </div>
       <% end %>
-      <div>
     </div>
   </div>
 
   <!-- 投稿一覧ボタン -->
   <div class="text-center mt-4 button-container">
-    <%= link_to "投稿一覧へ", posts_user_path, class: "btn btn-info btn-lg" %>
+    <%= link_to "投稿一覧へ", posts_user_path(@user), class: "btn btn-info btn-lg" %>
   </div>
 </div>

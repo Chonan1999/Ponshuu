@@ -1,67 +1,79 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* 基本設定 */
 body {
   font-family: "Arial", sans-serif;
-  background-color: #f5f5f5;
+  background-color: #f7f9fc;
   color: #333;
-  padding: 20px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.6;
 }
 
 /* 新規投稿用コンテナ */
 .post-container {
-  margin: 50px auto; /* ヘッダーから距離を確保 */
-  max-width: 600px; /* 最大幅を設定 */
+  margin: 60px auto;
+  max-width: 600px;
   background: #fff;
   padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* 投稿一覧用コンテナ */
 .post-list-container {
-  margin: 50px auto; /* 上下に余白を追加 */
-  max-width: 1200px; /* 最大幅を広げて3列対応 */
+  margin: 0 auto;
+  max-width: 1200px;
   background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* タイトル */
 h1 {
-  text-align: center; /* 中央揃え */
-  font-size: 2.5rem;
-  margin: 60px 0 20px; /* 上部に余白を追加 */
+  text-align: center;
+  font-size: 2.2rem;
+  margin: 40px 0;
   color: #333;
 }
 
 /* 投稿一覧 */
 .post-list {
-  display: grid; /* グリッドレイアウトを使用 */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* カードの3列対応（レスポンシブ） */
-  gap: 20px; /* カード間の余白 */
-  padding: 20px; /* 全体の内側余白 */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 20px;
+  margin: 0 auto;
 }
 
 /* 投稿カード */
 .post-card {
   background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
   overflow: hidden;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
 }
 
 .post-card:hover {
-  transform: translateY(-10px); /* ホバー時に浮き上がる */
+  transform: translateY(-8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
 /* 画像部分 */
 .post-image {
   width: 100%;
-  height: 200px;
-  overflow: hidden;
-  background-color: #f5f5f5; /* デフォルトの背景色 */
+  height: 100px;
+  background-color: #e9ecef;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,7 +82,7 @@ h1 {
 .post-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* 画像を中央で切り抜き */
+  object-fit: cover;
 }
 
 .post-image.no-image {
@@ -80,27 +92,27 @@ h1 {
 
 /* コンテンツ部分 */
 .post-content {
-  padding: 15px;
+  padding: 20px;
 }
 
 .post-content h3 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   color: #333;
 }
 
 .post-content p {
-  font-size: 1rem;
-  color: #666;
-  margin-bottom: 10px;
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 15px;
   line-height: 1.5;
 }
 
 /* 投稿者部分 */
 .post-content.text-center {
-  font-size: 0.9rem;
-  color: #555;
+  font-size: 0.85rem;
+  color: #666;
 }
 
 .user-link {
@@ -117,18 +129,22 @@ h1 {
 .form-actions,
 .return-button {
   display: flex;
-  justify-content: center; /* ボタンを中央に配置 */
-  gap: 15px; /* ボタン間の余白を適度に調整 */
-  margin-top: 30px;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
 }
 
 .btn {
-  padding: 10px 20px;
-  font-size: 1rem;
-  border-radius: 5px;
+  padding: 12px 25px;
+  font-size: 0.95rem;
+  border-radius: 6px;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
 }
 
 .btn-primary {
@@ -159,5 +175,72 @@ h1 {
 
 .btn-info:hover {
   background-color: #138496;
+}
+
+/* 投稿詳細ページのコンテナ */
+.post-details {
+  margin: 60px auto;
+  max-width: 800px;
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e1e4e8;
+}
+
+/* 画像部分（投稿詳細専用） */
+.post-details .edit-image {
+  display: block;
+  max-width: 300px; /* 最大幅を設定 */
+  max-height: 300px;
+  object-fit: cover; /* アスペクト比を保つ */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 10px 20px 10px 0; /* 上下と右側に余白 */
+  float: left; /* 左寄りに配置 */
+}
+
+/* コンテンツのセクション */
+.post-details .post-section {
+  overflow: hidden; /* floatによる崩れを防ぐ */
+}
+
+.post-details .post-section h3 {
+  font-size: 1.5rem;
+  color: #444;
+  margin-bottom: 10px;
+  border-left: 4px solid #007bff;
+  padding-left: 10px;
+}
+
+.post-details .post-section p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+/* 投稿者名の外側のスタイル */
+.post-author {
+  margin-bottom: 1rem; /* 下との間隔を少し広げる */
+}
+
+/* 投稿者名の文字スタイル */
+.post-author p {
+  font-size: 1.5rem; /* フォントを大きく */
+  font-weight: bold; /* 太字で強調 */
+  color: #333; /* 落ち着いた色 */
+}
+
+/* リンク部分のスタイル */
+.user-link {
+  text-decoration: none; /* 下線を消す */
+  color: #007bff; /* リンクを青に */
+  font-weight: bold; /* 太字に */
+}
+
+.user-link:hover {
+  text-decoration: underline; /* ホバー時に下線を追加 */
+  color: #0056b3; /* 少し濃い青 */
 }
 
