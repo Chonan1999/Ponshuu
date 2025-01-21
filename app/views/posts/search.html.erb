@@ -1,32 +1,39 @@
-<h1>日本酒を探す</h1>
+<div class="search-container">
+  <h1 class="search-title">日本酒を探す</h1>
 
-<%= form_with url: search_posts_path, method: :get, local: true do |f| %>
-  <div>
-    <%= f.label :keyword, "名前・感想" %>
-    <%= f.text_field :keyword, placeholder: "キーワードを入力" %>
-  </div>
-  <div>
-    <%= f.label :category_id, "カテゴリー" %>
-    <%= f.collection_select :category_id, @categories, :id, :name, { include_blank: "すべてのカテゴリー", selected: params[:category_id].presence }, { class: "custom-select" } %>
-  </div>
-  <div>
-    <%= f.submit "検索する", class: "button" %>
-  </div>
-<% end %>
-
-<% if params[:keyword].present? || params[:category_id].present? %>
-  <h2>検索結果</h2>
-  <% if @posts.any? %>
-    <% @posts.each do |post| %>
-      <div>
-        <%= link_to post.name, post_path(post, keyword: params[:keyword], category_id: params[:category_id]) %>
-        <p>カテゴリー: <%= post.category.name if post.category.present? %></p>
-        <p>感想: <%= post.text %></p>
-      </div>
-    <% end %>
-  <% else %>
-    <p>該当する投稿は見つかりませんでした。</p>
+  <%= form_with url: search_posts_path, method: :get, local: true, html: { class: "search-form" } do |f| %>
+    <div class="form-group">
+      <%= f.label :keyword, "名前・感想", class: "search-label" %>
+      <%= f.text_field :keyword, placeholder: "キーワードを入力", class: "search-input" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :category_id, "カテゴリー", class: "search-label" %>
+      <%= f.collection_select :category_id, @categories, :id, :name, { include_blank: "すべてのカテゴリー", selected: params[:category_id].presence }, { class: "search-select" } %>
+    </div>
+    <div class="form-actions">
+      <%= f.submit "検索する", class: "btn btn-primary search-button" %>
+      
+    </div>
   <% end %>
-<% end %> 
 
-<%= link_to '戻る', user_path(current_user) %>
+  <% if params[:keyword].present? || params[:category_id].present? %>
+    <h2 class="result-title">検索結果</h2>
+    <% if @posts.any? %>
+      <div class="result-list">
+        <% @posts.each do |post| %>
+          <div class="result-item">
+            <%= link_to post.name, post_path(post, keyword: params[:keyword], category_id: params[:category_id]), class: "result-link" %>
+            <p class="result-category">カテゴリー: <%= post.category.name if post.category.present? %></p>
+            <p class="result-text">感想: <%= post.text %></p>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p class="no-result">該当する投稿は見つかりませんでした。</p>
+    <% end %>
+  <% end %>
+
+  <div class="back-button-container">
+    <%= link_to '戻る', user_path(current_user), class: "btn btn-secondary back-button" %>
+  </div>
+</div>
