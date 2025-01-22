@@ -1,28 +1,33 @@
-<%= form_with(model: @user, local: true) do |form| %>
-  <div class="field">
-    <%= form.label :handle_name, "ハンドルネーム" %><br>
-    <%= form.text_field :handle_name %>
-  </div>
+<div class="profile-edit-container">
+  <div class="profile-edit-card">
+    <h2>プロフィール編集</h2>
+    <%= form_with(model: @user, local: true) do |form| %>
+      <div class="field">
+        <%= form.label :handle_name, "ハンドルネーム" %>
+        <%= form.text_field :handle_name, class: "input-field" %>
+      </div>
 
-  <div class="field">
-    <%= form.label :profile, "自己紹介" %><br>
-    <%= form.text_area :profile, rows: 4 %>
-  </div>
+      <div class="field">
+        <%= form.label :profile, "自己紹介" %>
+        <%= form.text_area :profile, rows: 4, class: "textarea-field" %>
+      </div>
 
-  <div class="field">
-    <%= form.label :profile_image, "プロフィール画像" %><br>
-    <%= form.file_field :profile_image %>
-    <% if @user.profile_image.present? %>
-      <div>
-        <p>現在の画像:</p>
-        <%= attachment_image_tag @user, :profile_image, size: "150x150" %>
+      <div class="field">
+        <%= form.label :profile_image, "プロフィール画像" %>
+        <%= form.file_field :profile_image, class: "file-input" %>
+        <% if @user.profile_image.present? %>
+          <div class="current-image">
+            <p>現在の画像:</p>
+            <%= attachment_image_tag @user, :profile_image, size: "150x150" %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit "更新する", class: "btn btn-primary" %>
       </div>
     <% end %>
-  </div>
 
-  <div class="actions">
-    <%= form.submit "更新する" %>
+    <%= link_to "マイページに戻る", user_path(@user), class: "back-button" %>
   </div>
-<% end %>
-
-<%= link_to "マイページに戻る", user_path(@user), class: "button" %>
+</div>
