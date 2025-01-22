@@ -32,5 +32,5 @@ class User < ApplicationRecord
     following_user.include?(user)
   end  
 
-  validates :name, presence: true
+  validates :handle_name, presence: true
 end
