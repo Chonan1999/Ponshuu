@@ -1,14 +1,9 @@
-<% content_for :page_specific_css do %>
-  <%= stylesheet_link_tag "home" %>
-<% end %>
-
-  <div class="cover">
-    <div class="text-center">
-      <h1 class="title">Ponshuu</h1>
-      <div>
-        <%= link_to "新規登録", new_user_registration_path, class: "btn btn-custom" %>
-        <%= link_to "ログイン", new_user_session_path, class: "btn btn-custom" %>
-      </div>
+<div class="cover">
+  <div class="text-center">
+    <h1 class="title">Ponshuu</h1>
+    <div>
+      <%= link_to "新規登録", new_user_registration_path, class: "btn btn-custom" %>
+      <%= link_to "ログイン", new_user_session_path, class: "btn btn-custom" %>
     </div>
   </div>
 </div>
