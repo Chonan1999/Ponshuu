@@ -8,8 +8,6 @@ class UsersController < ApplicationController
     @recent_posts = @user.posts.published.order(created_at: :desc).limit(3)
     @following_users = @user.following_user
     @follower_users = @user.follower_user
-    # @following_users = @user.followings
-    # @follower_users = @user.followers
   end
 
   def new

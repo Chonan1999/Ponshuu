@@ -1,2 +1,0 @@
-class PwaController < ApplicationController
-end
