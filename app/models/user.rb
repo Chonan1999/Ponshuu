@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :handle_name, presence: true       
+  
   # 投稿とコメント
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -32,5 +34,4 @@ class User < ApplicationRecord
     following_user.include?(user)
   end  
 
-  validates :handle_name, presence: true
 end
