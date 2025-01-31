@@ -15,4 +15,19 @@
 - 気になる日本酒の情報を集めたいとき。
 
 ## 利用方法
-- ユーザー新規登録を行う、またはログインする
+- ユーザー新規登録を行う、またはログインする。
+<img width="1440" alt="Image" src="https://github.com/user-attachments/assets/f16b976c-93f5-4dcb-b8b5-449af125edd2" /> 
+<img width="1440" alt="Image" src="https://github.com/user-attachments/assets/14868868-99ee-4e5a-9c14-19b072a89ba7" />
+<img width="1440" alt="Image" src="https://github.com/user-attachments/assets/e6eb3de7-f195-49b1-ba9b-0a3e678cddc0" />
+
+- 日本酒の画像や感想を投稿する。
+<img width="1440" alt="Image" src="https://github.com/user-attachments/assets/526a50cb-9cf5-437b-92ca-311e55725abb" />
+<img width="1440" alt="Image" src="https://github.com/user-attachments/assets/d31d0fb3-a2da-4353-a765-cadc9ab71f00" />
+
+- 他のユーザーの投稿を閲覧し、気に入った投稿にコメントを残す。
+<img width="1440" alt="Image" src="https://github.com/user-attachments/assets/e12f67dd-dcb0-41c3-9060-8dae86a759ce" />
+<img width="1439" alt="Image" src="https://github.com/user-attachments/assets/c463bb30-254e-4b1b-9c0f-abb9fab7b707" />
+
+- 気になる日本酒を検索。
+<img width="1440" alt="Image" src="https://github.com/user-attachments/assets/ee2a3f73-3226-408a-9e4b-947c51157656" />
+<img width="1440" alt="Image" src="https://github.com/user-attachments/assets/723eed20-bce3-4e3b-a055-dd295f6d1240" />
