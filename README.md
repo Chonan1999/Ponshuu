@@ -31,3 +31,23 @@
 - 気になる日本酒を検索。
 <img width="1440" alt="Image" src="https://github.com/user-attachments/assets/ee2a3f73-3226-408a-9e4b-947c51157656" />
 <img width="1440" alt="Image" src="https://github.com/user-attachments/assets/723eed20-bce3-4e3b-a055-dd295f6d1240" />
+
+## 機能一覧
+- 基本的なCRUD機能
+- ユーザー認証機能(devise)
+- 画像アップロード機能(Refile)
+- コメント機能
+- フォローフォロワー機能
+- 下書き機能
+- 検索機能
+- 閲覧数表示機能
+- バリデーション
+- ページネーション
+- レスポンシブ対応
+
+## 開発環境
+- OS：Mac + ターミナル
+- 言語：HTML、CSS、JavaScript、Ruby
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- データベース：PostgreSQL
